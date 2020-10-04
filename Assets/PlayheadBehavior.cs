@@ -17,7 +17,14 @@ public class PlayheadBehavior : MonoBehaviour
     Vector3 initialPosition;
     Rigidbody2D myRb;
     public CameraShake Cam2DShake;
-    new List<NoteBehavior> activeNotes = new List<NoteBehavior>();
+    new List<NoteBehavior> activeNotes1 = new List<NoteBehavior>();
+    new List<NoteBehavior> activeNotes2 = new List<NoteBehavior>();
+    new List<NoteBehavior> activeNotes3 = new List<NoteBehavior>();
+    new List<NoteBehavior> activeNotes4 = new List<NoteBehavior>();
+    public int notesInTrack1 = 4;
+    public int notesInTrack2 = 4;
+    public int notesInTrack3 = 4;
+    public int notesInTrack4 = 4;
     //update this to increase instrument count
     new List<NoteBehavior> overlappingNotes = new List<NoteBehavior> ();
     public PlayerBehavior player;
@@ -72,9 +79,85 @@ public class PlayheadBehavior : MonoBehaviour
         }
         */
 
+        //reseting loop when right mouse is released!
+
         if(Input.GetMouseButtonUp(1))
         {
-            activeNotes = new List<NoteBehavior>();
+
+            if(activeNotes1.Count > 0)
+            {
+
+                if (activeNotes1.Count == notesInTrack1)
+                {
+                    activeNotes1 = new List<NoteBehavior>();
+                }
+                else
+                {
+                    foreach (NoteBehavior n in activeNotes1)
+                    {
+                        n.setInactive();
+                       
+                    }
+                    Cam2DShake.shakeDuration = 0.1f;
+                    activeNotes1 = new List<NoteBehavior>();
+                }
+            }
+
+            if (activeNotes2.Count > 0)
+            {
+                if (activeNotes2.Count == notesInTrack2)
+                {
+                    activeNotes2 = new List<NoteBehavior>();
+                }
+                else
+                {
+                    foreach (NoteBehavior n in activeNotes2)
+                    {
+                        n.setInactive();
+                        
+                    }
+                    Cam2DShake.shakeDuration = 0.1f;
+                    activeNotes2 = new List<NoteBehavior>();
+                }
+            }
+
+            if (activeNotes3.Count > 0)
+            {
+                if (activeNotes3.Count == notesInTrack3)
+                {
+                    activeNotes3 = new List<NoteBehavior>();
+                }
+                else
+                {
+                    foreach (NoteBehavior n in activeNotes3)
+                    {
+                        n.setInactive();
+                       
+                    }
+                    Cam2DShake.shakeDuration = 0.1f;
+                    activeNotes3 = new List<NoteBehavior>();
+                }
+            }
+
+            if (activeNotes4.Count > 0 )
+            {
+
+                if (activeNotes4.Count == notesInTrack4)
+                {
+                    activeNotes4 = new List<NoteBehavior>();
+                }
+                else
+                {
+                    foreach (NoteBehavior n in activeNotes4)
+                    {
+                        n.setInactive();
+                        
+                    }
+                    Cam2DShake.shakeDuration = 0.1f;
+                    activeNotes4 = new List<NoteBehavior>();
+                }
+            }
+
         }
     }
 
@@ -111,83 +194,104 @@ public class PlayheadBehavior : MonoBehaviour
         barRunning = false;
     }
 
-
+    //Check for timed presses!
     void checkTrack1(int a)
     {
+        bool matchFound = false;
         Debug.Log("Checking track 1");
         for(int i=0; i<overlappingNotes.Count;i++)
         {
             if(overlappingNotes[i].trackNumber ==1 )
             {
                 overlappingNotes[i].setActive();
-                activeNotes.Add(overlappingNotes[i]);
-            } else
+                activeNotes1.Add(overlappingNotes[i]);
+                matchFound = true;
+            } 
+            
+        }
+
+        if(!matchFound)
+        {
+            foreach (NoteBehavior n in activeNotes1)
             {
-                foreach (NoteBehavior n in activeNotes)
-                {
-                    n.setInactive();
-                    Cam2DShake.shakeDuration = 0.1f;
-                }
+                n.setInactive();
+                Cam2DShake.shakeDuration = 0.1f;
+                activeNotes1 = new List<NoteBehavior>();
             }
         }
     }
 
     void checkTrack2(int a)
     {
+        bool matchFound = false;
         for (int i = 0; i < overlappingNotes.Count; i++)
         {
             if (overlappingNotes[i].trackNumber == 2)
             {
                 overlappingNotes[i].setActive();
-                activeNotes.Add(overlappingNotes[i]);
+                activeNotes2.Add(overlappingNotes[i]);
+                matchFound = true;
             }
-            else
+            
+        }
+
+        if (!matchFound)
+        {
+            foreach (NoteBehavior n in activeNotes2)
             {
-                foreach (NoteBehavior n in activeNotes)
-                {
-                    n.setInactive();
-                    Cam2DShake.shakeDuration = 0.1f;
-                }
+                n.setInactive();
+                Cam2DShake.shakeDuration = 0.1f;
+                activeNotes2 = new List<NoteBehavior>();
             }
         }
     }
 
     void checkTrack3(int a)
     {
+        bool matchFound = false;
         for (int i = 0; i < overlappingNotes.Count; i++)
         {
             if (overlappingNotes[i].trackNumber == 3)
             {
                 overlappingNotes[i].setActive();
-                activeNotes.Add(overlappingNotes[i]);
+                activeNotes3.Add(overlappingNotes[i]);
+                matchFound = true;
             }
-            else
+           
+        }
+
+        if (!matchFound)
+        {
+            foreach (NoteBehavior n in activeNotes3)
             {
-                foreach (NoteBehavior n in activeNotes)
-                {
-                    n.setInactive();
-                    Cam2DShake.shakeDuration = 0.1f;
-                }
+                n.setInactive();
+                Cam2DShake.shakeDuration = 0.1f;
+                activeNotes2 = new List<NoteBehavior>();
             }
         }
     }
 
     void checkTrack4(int a)
     {
+        bool matchFound = false;
         for (int i = 0; i < overlappingNotes.Count; i++)
         {
             if (overlappingNotes[i].trackNumber == 4)
             {
                 overlappingNotes[i].setActive();
-                activeNotes.Add(overlappingNotes[i]);
+                activeNotes4.Add(overlappingNotes[i]);
+                matchFound = true;
             }
-            else
+          
+        }
+
+        if (!matchFound)
+        {
+            foreach (NoteBehavior n in activeNotes4)
             {
-                foreach (NoteBehavior n in activeNotes)
-                {
-                    n.setInactive();
-                    Cam2DShake.shakeDuration = 0.1f;
-                }
+                n.setInactive();
+                Cam2DShake.shakeDuration = 0.1f;
+                activeNotes4 = new List<NoteBehavior>();
             }
         }
     }

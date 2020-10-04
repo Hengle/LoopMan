@@ -218,7 +218,7 @@ PrefabInstance:
         type: 3}
       propertyPath: mySound
       value: 
-      objectReference: {fileID: 8300000, guid: 0f8d30a649ff0004a907bfa2b3acf924, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 203033255898130489, guid: 70dea6212676183448986ecdbf6d9061,
         type: 3}
       propertyPath: m_Mass
@@ -228,6 +228,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_CollisionDetection
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 203033255898130489, guid: 70dea6212676183448986ecdbf6d9061,
+        type: 3}
+      propertyPath: m_BodyType
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 203033255898130490, guid: 70dea6212676183448986ecdbf6d9061,
         type: 3}
@@ -250,6 +255,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 6a7b1b1ecdf0b4676a86a8840f7a26a4,
         type: 3}
+    - target: {fileID: 203033255898130490, guid: 70dea6212676183448986ecdbf6d9061,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 203033255898130491, guid: 70dea6212676183448986ecdbf6d9061,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1027,7 +1037,7 @@ PrefabInstance:
     - target: {fileID: 522316235103205886, guid: 06b06051b57eb9f41a3e9e59f979669f,
         type: 3}
       propertyPath: trackNumber
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 522316235103205886, guid: 06b06051b57eb9f41a3e9e59f979669f,
         type: 3}
@@ -1187,8 +1197,12 @@ MonoBehaviour:
   numberOfBars: 2
   endPosition: {x: 0, y: 0, z: 0}
   sampleBeat: {fileID: 1704829559}
-  Cam2DShake: {fileID: 0}
-  player: {fileID: 0}
+  Cam2DShake: {fileID: 1715405713}
+  notesInTrack1: 3
+  notesInTrack2: 2
+  notesInTrack3: 4
+  notesInTrack4: 4
+  player: {fileID: 1974096312}
 --- !u!1 &248788926
 GameObject:
   m_ObjectHideFlags: 0
@@ -1608,7 +1622,7 @@ PrefabInstance:
     - target: {fileID: 522316235103205886, guid: 06b06051b57eb9f41a3e9e59f979669f,
         type: 3}
       propertyPath: trackNumber
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 522316235103205886, guid: 06b06051b57eb9f41a3e9e59f979669f,
         type: 3}
@@ -1639,7 +1653,7 @@ PrefabInstance:
         type: 3}
       propertyPath: mySound
       value: 
-      objectReference: {fileID: 8300000, guid: c40e5a7e464845d44bca74e0e0aadc10, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 203033255898130489, guid: 70dea6212676183448986ecdbf6d9061,
         type: 3}
       propertyPath: m_Mass
@@ -1649,6 +1663,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_CollisionDetection
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 203033255898130489, guid: 70dea6212676183448986ecdbf6d9061,
+        type: 3}
+      propertyPath: m_BodyType
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 203033255898130490, guid: 70dea6212676183448986ecdbf6d9061,
         type: 3}
@@ -1671,10 +1690,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: e0cb0798803fd496cb71f28b8b0570c7,
         type: 3}
+    - target: {fileID: 203033255898130490, guid: 70dea6212676183448986ecdbf6d9061,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 203033255898130491, guid: 70dea6212676183448986ecdbf6d9061,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.24
+      value: -10.31
       objectReference: {fileID: 0}
     - target: {fileID: 203033255898130491, guid: 70dea6212676183448986ecdbf6d9061,
         type: 3}
@@ -1790,7 +1814,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
+  m_BackGroundColor: {r: 0.254717, g: 0.254717, b: 0.254717, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -2008,7 +2032,7 @@ PrefabInstance:
     - target: {fileID: 522316235103205886, guid: 06b06051b57eb9f41a3e9e59f979669f,
         type: 3}
       propertyPath: trackNumber
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 522316235103205886, guid: 06b06051b57eb9f41a3e9e59f979669f,
         type: 3}
@@ -3495,7 +3519,7 @@ GameObject:
   - component: {fileID: 1424911309}
   m_Layer: 0
   m_Name: LoopManager
-  m_TagString: Untagged
+  m_TagString: looper
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3630,7 +3654,7 @@ PrefabInstance:
     - target: {fileID: 522316235103205886, guid: 06b06051b57eb9f41a3e9e59f979669f,
         type: 3}
       propertyPath: trackNumber
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 522316235103205886, guid: 06b06051b57eb9f41a3e9e59f979669f,
         type: 3}
@@ -21039,7 +21063,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1715405710}
   - component: {fileID: 1715405712}
-  - component: {fileID: 1715405711}
+  - component: {fileID: 1715405713}
   m_Layer: 0
   m_Name: SecondCamera
   m_TagString: Untagged
@@ -21061,14 +21085,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!81 &1715405711
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1715405709}
-  m_Enabled: 1
 --- !u!20 &1715405712
 Camera:
   m_ObjectHideFlags: 0
@@ -21112,6 +21128,22 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &1715405713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1715405709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b650aff9216a2b44687cf82fa3386faf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camTransform: {fileID: 0}
+  shakeDuration: 0
+  shakeAmount: 0.7
+  decreaseFactor: 1
 --- !u!1001 &1746316471
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21123,7 +21155,7 @@ PrefabInstance:
         type: 3}
       propertyPath: mySound
       value: 
-      objectReference: {fileID: 8300000, guid: 1fcef53b9ebb5e2479c84e8aaf2896dc, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 203033255898130488, guid: 70dea6212676183448986ecdbf6d9061,
         type: 3}
       propertyPath: trackNumber
@@ -21138,6 +21170,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_CollisionDetection
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 203033255898130489, guid: 70dea6212676183448986ecdbf6d9061,
+        type: 3}
+      propertyPath: m_BodyType
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 203033255898130490, guid: 70dea6212676183448986ecdbf6d9061,
         type: 3}
@@ -21160,6 +21197,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 41a287f48996549f0867f504d421316e,
         type: 3}
+    - target: {fileID: 203033255898130490, guid: 70dea6212676183448986ecdbf6d9061,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 203033255898130491, guid: 70dea6212676183448986ecdbf6d9061,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -21551,7 +21593,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -21644,6 +21686,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 217715416}
     m_Modifications:
+    - target: {fileID: 203033255898130488, guid: 70dea6212676183448986ecdbf6d9061,
+        type: 3}
+      propertyPath: mySound
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 203033255898130489, guid: 70dea6212676183448986ecdbf6d9061,
         type: 3}
       propertyPath: m_Mass
@@ -21654,12 +21701,22 @@ PrefabInstance:
       propertyPath: m_CollisionDetection
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 203033255898130489, guid: 70dea6212676183448986ecdbf6d9061,
+        type: 3}
+      propertyPath: m_BodyType
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 203033255898130490, guid: 70dea6212676183448986ecdbf6d9061,
         type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 92d51426370e4436397d9cf59f75eee2,
         type: 3}
+    - target: {fileID: 203033255898130490, guid: 70dea6212676183448986ecdbf6d9061,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 203033255898130491, guid: 70dea6212676183448986ecdbf6d9061,
         type: 3}
       propertyPath: m_LocalPosition.x
