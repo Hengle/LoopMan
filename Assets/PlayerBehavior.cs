@@ -13,7 +13,13 @@ public class PlayerBehavior : MonoBehaviour
     public Transform attackPos;
     public float attackRadius = 0.5f;
     public LayerMask enemies;
+
     public bool recording = false;
+
+
+    public Animator playerAnim;
+
+
     void Start()
     {
         myRb = GetComponent<Rigidbody2D>();
@@ -37,25 +43,42 @@ public class PlayerBehavior : MonoBehaviour
 
         movementVector = new Vector3(hInput, vInput,0);
         Vector3 targetPos = transform.position + movementVector * speed * Time.deltaTime;
+        playerAnim.SetFloat("haxis", hInput);
+        playerAnim.SetFloat("vaxis", vInput);
 
         if (hInput > 0)
         {
-            transform.rotation = Quaternion.Euler(new Vector3(0, 0, -90));
+            //transform.rotation = Quaternion.Euler(new Vector3(0, 0, -90));
+            playerAnim.SetBool("right", true);
+            playerAnim.SetBool("left", false);
+            gameObject.GetComponent<SpriteRenderer>().flipX = false;
+
         }
-        
+
         else if(hInput <0)
         {
-            transform.rotation = Quaternion.Euler(new Vector3(0, 0, 90));
+            //transform.rotation = Quaternion.Euler(new Vector3(0, 0, 90));
+            playerAnim.SetBool("right", false);
+            playerAnim.SetBool("left", true);
+            gameObject.GetComponent<SpriteRenderer>().flipX = true;
         }
 
         if (vInput > 0)
         {
-            transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+            //transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+            playerAnim.SetBool("up", true);
+            playerAnim.SetBool("down", false);
+            playerAnim.SetBool("right", false);
+            playerAnim.SetBool("left", false);
         }
         
         else if (vInput < 0)
         {
-            transform.rotation = Quaternion.Euler(new Vector3(0, 0, 180));
+            //transform.rotation = Quaternion.Euler(new Vector3(0, 0, 180));
+            playerAnim.SetBool("up", false);
+            playerAnim.SetBool("down", true);
+            playerAnim.SetBool("right", false);
+            playerAnim.SetBool("left", false);
         }
 
         if(Input.GetMouseButtonDown(0))
