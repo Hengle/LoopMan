@@ -1020,8 +1020,8 @@ MonoBehaviour:
   numberOfBars: 2
   endPosition: {x: 0, y: 0, z: 0}
   sampleBeat: {fileID: 1704829559}
-  Cam2DShake: {fileID: 0}
-  player: {fileID: 0}
+  Cam2DShake: {fileID: 1715405711}
+  player: {fileID: 1974096312}
 --- !u!1 &248788926
 GameObject:
   m_ObjectHideFlags: 0
@@ -5683,6 +5683,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1715405710}
   - component: {fileID: 1715405712}
+  - component: {fileID: 1715405711}
   m_Layer: 0
   m_Name: SecondCamera
   m_TagString: Untagged
@@ -5704,6 +5705,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1715405711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1715405709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b650aff9216a2b44687cf82fa3386faf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camTransform: {fileID: 0}
+  shakeDuration: 0.2
+  shakeAmount: 0.7
+  decreaseFactor: 1
 --- !u!20 &1715405712
 Camera:
   m_ObjectHideFlags: 0
@@ -6133,7 +6150,7 @@ MonoBehaviour:
   speed: 5
   attackCone: {fileID: 788948885}
   attackPos: {fileID: 788948886}
-  attackRadius: 0.5
+  attackRadius: 0.1
   enemies:
     serializedVersion: 2
     m_Bits: 256
