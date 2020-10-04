@@ -10,6 +10,9 @@ public class PlayerBehavior : MonoBehaviour
     Vector3 movementVector;
     Vector3 targetPos = Vector3.zero;
     public GameObject attackCone;
+    public Transform attackPos;
+    public float attackRadius = 0.5f;
+    public LayerMask enemies;
     void Start()
     {
         myRb = GetComponent<Rigidbody2D>();
@@ -58,6 +61,13 @@ public class PlayerBehavior : MonoBehaviour
         {
             IEnumerator attack = attackCoroutine();
             StartCoroutine(attack);
+
+            RaycastHit2D hitCircle = Physics2D.CircleCast(attackPos.position, attackRadius, Vector2.up, Mathf.Infinity, enemies);
+            Debug.Log(hitCircle.collider);
+            if(hitCircle!=null)
+            {
+                hitCircle.collider.GetComponent<enemyBehavior>().playSound();
+            }
         }
 
 

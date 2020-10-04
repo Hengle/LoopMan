@@ -32,22 +32,10 @@ public class enemyBehavior : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+   
+
+    public void playSound()
     {
-        Debug.Log(collision.tag);
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        Debug.Log(collision.tag);
-        if(collision.CompareTag("playerAttackBox"))
-        {
-            
-            enemyManager.playSound(mySound);
-        }
-    }
-    private void OnMouseDown()
-    {
-       
         enemyManager.playSound(mySound);
         if (recording)
         {
@@ -68,5 +56,30 @@ public class enemyBehavior : MonoBehaviour
                 MyEventSystem.track4Hit(1);
             }
         }
+    }
+    private void OnMouseDown()
+    {
+       /*
+        enemyManager.playSound(mySound);
+        if (recording)
+        {
+            if (trackNumber == 1)
+            {
+                MyEventSystem.track1Hit(1);
+            }
+            if (trackNumber == 2)
+            {
+                MyEventSystem.track2Hit(1);
+            }
+            if (trackNumber == 3)
+            {
+                MyEventSystem.track3Hit(1);
+            }
+            if (trackNumber == 4)
+            {
+                MyEventSystem.track4Hit(1);
+            }
+        }
+       */
     }
 }
