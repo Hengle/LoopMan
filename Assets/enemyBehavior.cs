@@ -9,9 +9,22 @@ public class enemyBehavior : MonoBehaviour
     public int trackNumber = 0;
     EnemySoundManager enemyManager;
     bool recording = false;
+    private PlayerBehavior player;
+    public GameObject glow;
     void Start()
     {
         enemyManager = GameObject.FindGameObjectWithTag("enemyManager").GetComponent<EnemySoundManager>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerBehavior>();
+    }
+
+    private void OnEnable()
+    {
+        MyEventSystem.trackGlow += playGlow;
+    }
+
+    private void OnDisable()
+    {
+        MyEventSystem.trackGlow -= playGlow;
     }
 
     // Update is called once per frame
@@ -22,18 +35,18 @@ public class enemyBehavior : MonoBehaviour
 
     void inputManager()
     {
-        if (Input.GetMouseButton(1))
-        {
-            recording = true;
-        }
-        else
-        {
-            recording = false;
-        }
+        recording = player.recording;
     }
 
    
-
+    public void playGlow(int i)
+    {
+        if (i == trackNumber)
+        {
+            IEnumerator glow = removeinSomeTime();
+            StartCoroutine(glow);
+        }
+    }
     public void playSound()
     {
         enemyManager.playSound(mySound);
@@ -81,5 +94,15 @@ public class enemyBehavior : MonoBehaviour
             }
         }
        */
+    }
+
+    IEnumerator removeinSomeTime()
+    {
+        glow.SetActive(true);
+        yield return new WaitForSeconds(0.1667f);
+        glow.SetActive(false);
+       
+
+
     }
 }

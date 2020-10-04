@@ -15,9 +15,11 @@ public class PlayheadBehavior : MonoBehaviour
     bool loopStarted = false;
     Vector3 initialPosition;
     Rigidbody2D myRb;
+    public CameraShake Cam2DShake;
+    new List<NoteBehavior> activeNotes = new List<NoteBehavior>();
     //update this to increase instrument count
     new List<NoteBehavior> overlappingNotes = new List<NoteBehavior> ();
-
+    public PlayerBehavior player;
     
 
     private void OnEnable()
@@ -49,6 +51,7 @@ public class PlayheadBehavior : MonoBehaviour
         
         Debug.Log("beatwidth " + beatWidth) ;
         timeForBar = 4.0f * (60.0f / BPM);
+        Debug.Log("1 beat time " + 60.0f / (4.0f*BPM));
         endPosition = transform.position + new Vector3(4 * 4 * beatWidth, 0, 0) ;
         //IEnumerator moveHeader = MoveToPosition(transform, endPosition, timeForBar);
         // StartCoroutine(moveHeader);
@@ -67,6 +70,11 @@ public class PlayheadBehavior : MonoBehaviour
             loopStarted = true;
         }
         */
+
+        if(Input.GetMouseButtonUp(1))
+        {
+            activeNotes = new List<NoteBehavior>();
+        }
     }
 
     public IEnumerator Looper()
@@ -102,6 +110,7 @@ public class PlayheadBehavior : MonoBehaviour
         barRunning = false;
     }
 
+
     void checkTrack1(int a)
     {
         Debug.Log("Checking track 1");
@@ -110,6 +119,14 @@ public class PlayheadBehavior : MonoBehaviour
             if(overlappingNotes[i].trackNumber ==1 )
             {
                 overlappingNotes[i].setActive();
+                activeNotes.Add(overlappingNotes[i]);
+            } else
+            {
+                foreach (NoteBehavior n in activeNotes)
+                {
+                    n.setInactive();
+                    Cam2DShake.shakeDuration = 0.1f;
+                }
             }
         }
     }
@@ -121,6 +138,15 @@ public class PlayheadBehavior : MonoBehaviour
             if (overlappingNotes[i].trackNumber == 2)
             {
                 overlappingNotes[i].setActive();
+                activeNotes.Add(overlappingNotes[i]);
+            }
+            else
+            {
+                foreach (NoteBehavior n in activeNotes)
+                {
+                    n.setInactive();
+                    Cam2DShake.shakeDuration = 0.1f;
+                }
             }
         }
     }
@@ -132,6 +158,15 @@ public class PlayheadBehavior : MonoBehaviour
             if (overlappingNotes[i].trackNumber == 3)
             {
                 overlappingNotes[i].setActive();
+                activeNotes.Add(overlappingNotes[i]);
+            }
+            else
+            {
+                foreach (NoteBehavior n in activeNotes)
+                {
+                    n.setInactive();
+                    Cam2DShake.shakeDuration = 0.1f;
+                }
             }
         }
     }
@@ -143,6 +178,15 @@ public class PlayheadBehavior : MonoBehaviour
             if (overlappingNotes[i].trackNumber == 4)
             {
                 overlappingNotes[i].setActive();
+                activeNotes.Add(overlappingNotes[i]);
+            }
+            else
+            {
+                foreach (NoteBehavior n in activeNotes)
+                {
+                    n.setInactive();
+                    Cam2DShake.shakeDuration = 0.1f;
+                }
             }
         }
     }

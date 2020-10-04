@@ -13,6 +13,7 @@ public class PlayerBehavior : MonoBehaviour
     public Transform attackPos;
     public float attackRadius = 0.5f;
     public LayerMask enemies;
+    public bool recording = false;
     void Start()
     {
         myRb = GetComponent<Rigidbody2D>();
@@ -64,11 +65,23 @@ public class PlayerBehavior : MonoBehaviour
 
             RaycastHit2D hitCircle = Physics2D.CircleCast(attackPos.position, attackRadius, Vector2.up, Mathf.Infinity, enemies);
             Debug.Log(hitCircle.collider);
-            if(hitCircle!=null)
+            if(hitCircle.collider !=null)
             {
                 hitCircle.collider.GetComponent<enemyBehavior>().playSound();
             }
         }
+
+        if(Input.GetMouseButton(1))
+        {
+            GetComponent<SpriteRenderer>().color =  new Color(1,0,0,1);
+            recording = true;
+        } else
+        {
+            recording = false;
+            GetComponent<SpriteRenderer>().color = Color.white;
+        }
+
+        
 
 
 

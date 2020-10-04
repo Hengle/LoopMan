@@ -63,6 +63,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\CameraShake.cs" />
     <Compile Include="Assets\EnemySoundManager.cs" />
     <Compile Include="Assets\LoopManager.cs" />
     <Compile Include="Assets\NoteBehavior.cs" />

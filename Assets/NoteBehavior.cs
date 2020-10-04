@@ -31,6 +31,12 @@ public class NoteBehavior : MonoBehaviour
         mySprite.color = new Color(inactiveColor.r, inactiveColor.g, inactiveColor.b, 1);
     }
 
+    public void setInactive()
+    {
+        active = false;
+        mySprite.color = inactiveColor;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //Linked note width to pitch of the sound
@@ -56,7 +62,13 @@ public class NoteBehavior : MonoBehaviour
                     MyEventSystem.track4Event(noteWidth);
                 }
             }
-        } 
+        } else
+        {
+            if (collision.gameObject.CompareTag("playHead"))
+            {
+                MyEventSystem.trackGlow(trackNumber);
+            }
+        }
     }
 
     private void OnTriggerStay2D(Collider2D collision)

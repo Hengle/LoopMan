@@ -229,6 +229,16 @@ PrefabInstance:
       propertyPath: m_CollisionDetection
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 203033255898130489, guid: 70dea6212676183448986ecdbf6d9061,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 203033255898130489, guid: 70dea6212676183448986ecdbf6d9061,
+        type: 3}
+      propertyPath: m_BodyType
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 203033255898130490, guid: 70dea6212676183448986ecdbf6d9061,
         type: 3}
       propertyPath: m_Color.r
@@ -1019,6 +1029,8 @@ MonoBehaviour:
   BPM: 90
   endPosition: {x: 0, y: 0, z: 0}
   sampleBeat: {fileID: 1704829559}
+  Cam2DShake: {fileID: 519420030}
+  player: {fileID: 0}
 --- !u!1 &248788926
 GameObject:
   m_ObjectHideFlags: 0
@@ -1243,6 +1255,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_CollisionDetection
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 203033255898130489, guid: 70dea6212676183448986ecdbf6d9061,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 203033255898130489, guid: 70dea6212676183448986ecdbf6d9061,
+        type: 3}
+      propertyPath: m_BodyType
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 203033255898130490, guid: 70dea6212676183448986ecdbf6d9061,
         type: 3}
@@ -1603,6 +1625,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420030}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1618,6 +1641,22 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
+--- !u!114 &519420030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b650aff9216a2b44687cf82fa3386faf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camTransform: {fileID: 0}
+  shakeDuration: 0
+  shakeAmount: 0.7
+  decreaseFactor: 1
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -3527,6 +3566,16 @@ PrefabInstance:
       propertyPath: m_CollisionDetection
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 203033255898130489, guid: 70dea6212676183448986ecdbf6d9061,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 203033255898130489, guid: 70dea6212676183448986ecdbf6d9061,
+        type: 3}
+      propertyPath: m_BodyType
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 203033255898130490, guid: 70dea6212676183448986ecdbf6d9061,
         type: 3}
       propertyPath: m_Color.r
@@ -3889,6 +3938,7 @@ MonoBehaviour:
   enemies:
     serializedVersion: 2
     m_Bits: 256
+  recording: 0
 --- !u!212 &1974096313
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4225,6 +4275,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_CollisionDetection
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 203033255898130489, guid: 70dea6212676183448986ecdbf6d9061,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 203033255898130489, guid: 70dea6212676183448986ecdbf6d9061,
+        type: 3}
+      propertyPath: m_BodyType
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 203033255898130491, guid: 70dea6212676183448986ecdbf6d9061,
         type: 3}
