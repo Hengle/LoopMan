@@ -11,10 +11,13 @@ public class enemyBehavior : MonoBehaviour
     bool recording = false;
     private PlayerBehavior player;
     public GameObject glow;
+    public ParticleSystem ps;
+    public Color psColor;
     void Start()
     {
         enemyManager = GameObject.FindGameObjectWithTag("enemyManager").GetComponent<EnemySoundManager>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerBehavior>();
+        ps = GetComponent<ParticleSystem>();
     }
 
     private void OnEnable()
@@ -49,7 +52,9 @@ public class enemyBehavior : MonoBehaviour
     }
     public void playSound()
     {
+        ps.startColor = psColor;
         enemyManager.playSound(mySound);
+        ps.Play();
         if (recording)
         {
             if (trackNumber == 1)

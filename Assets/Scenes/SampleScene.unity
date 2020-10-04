@@ -219,6 +219,21 @@ PrefabInstance:
       propertyPath: mySound
       value: 
       objectReference: {fileID: 8300000, guid: 0f8d30a649ff0004a907bfa2b3acf924, type: 3}
+    - target: {fileID: 203033255898130488, guid: 70dea6212676183448986ecdbf6d9061,
+        type: 3}
+      propertyPath: psColor.r
+      value: 0.29803923
+      objectReference: {fileID: 0}
+    - target: {fileID: 203033255898130488, guid: 70dea6212676183448986ecdbf6d9061,
+        type: 3}
+      propertyPath: psColor.g
+      value: 0.9490197
+      objectReference: {fileID: 0}
+    - target: {fileID: 203033255898130488, guid: 70dea6212676183448986ecdbf6d9061,
+        type: 3}
+      propertyPath: psColor.b
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 203033255898130489, guid: 70dea6212676183448986ecdbf6d9061,
         type: 3}
       propertyPath: m_Mass
@@ -1017,10 +1032,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BPM: 90
-  numberOfBars: 2
+  numberOfBars: 1
   endPosition: {x: 0, y: 0, z: 0}
   sampleBeat: {fileID: 1704829559}
   Cam2DShake: {fileID: 1715405711}
+  notesInTrack1: 4
+  notesInTrack2: 3
+  notesInTrack3: 1
+  notesInTrack4: 0
   player: {fileID: 1974096312}
 --- !u!1 &248788926
 GameObject:
@@ -1281,6 +1300,21 @@ PrefabInstance:
       propertyPath: mySound
       value: 
       objectReference: {fileID: 8300000, guid: c40e5a7e464845d44bca74e0e0aadc10, type: 3}
+    - target: {fileID: 203033255898130488, guid: 70dea6212676183448986ecdbf6d9061,
+        type: 3}
+      propertyPath: psColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 203033255898130488, guid: 70dea6212676183448986ecdbf6d9061,
+        type: 3}
+      propertyPath: psColor.g
+      value: 0.6666667
+      objectReference: {fileID: 0}
+    - target: {fileID: 203033255898130488, guid: 70dea6212676183448986ecdbf6d9061,
+        type: 3}
+      propertyPath: psColor.b
+      value: 0.44705886
+      objectReference: {fileID: 0}
     - target: {fileID: 203033255898130489, guid: 70dea6212676183448986ecdbf6d9061,
         type: 3}
       propertyPath: m_Mass
@@ -5718,7 +5752,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camTransform: {fileID: 0}
-  shakeDuration: 0.2
+  shakeDuration: 0
   shakeAmount: 0.7
   decreaseFactor: 1
 --- !u!20 &1715405712
@@ -5780,6 +5814,21 @@ PrefabInstance:
         type: 3}
       propertyPath: trackNumber
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 203033255898130488, guid: 70dea6212676183448986ecdbf6d9061,
+        type: 3}
+      propertyPath: psColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 203033255898130488, guid: 70dea6212676183448986ecdbf6d9061,
+        type: 3}
+      propertyPath: psColor.g
+      value: 0.44705886
+      objectReference: {fileID: 0}
+    - target: {fileID: 203033255898130488, guid: 70dea6212676183448986ecdbf6d9061,
+        type: 3}
+      propertyPath: psColor.b
+      value: 0.93725497
       objectReference: {fileID: 0}
     - target: {fileID: 203033255898130489, guid: 70dea6212676183448986ecdbf6d9061,
         type: 3}
