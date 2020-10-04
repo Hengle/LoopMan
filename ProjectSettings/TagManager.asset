@@ -7,6 +7,7 @@ TagManager:
   - playHead
   - enemyManager
   - playerAttackBox
+  - looper
   layers:
   - Default
   - TransparentFX

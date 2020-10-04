@@ -177,7 +177,7 @@ public class PlayerBehavior : MonoBehaviour
         //attackCone.SetActive(true);
   playerAnim.SetBool("attacking", true);
         
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.1f);
         playerAnim.SetBool("attacking", false);
         transform.position = initialPos;
         //attackCone.SetActive(false);

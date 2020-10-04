@@ -13,11 +13,14 @@ public class enemyBehavior : MonoBehaviour
     public GameObject glow;
     public ParticleSystem ps;
     public Color psColor;
+    public LoopManager loopManager;
     void Start()
     {
         enemyManager = GameObject.FindGameObjectWithTag("enemyManager").GetComponent<EnemySoundManager>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerBehavior>();
         ps = GetComponent<ParticleSystem>();
+        loopManager = GameObject.FindGameObjectWithTag("looper").GetComponent<LoopManager>();
+        mySound = loopManager.sounds[trackNumber - 1];
     }
 
     private void OnEnable()
