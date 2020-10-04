@@ -218,7 +218,7 @@ PrefabInstance:
         type: 3}
       propertyPath: mySound
       value: 
-      objectReference: {fileID: 8300000, guid: 0f8d30a649ff0004a907bfa2b3acf924, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 203033255898130489, guid: 70dea6212676183448986ecdbf6d9061,
         type: 3}
       propertyPath: m_Mass
@@ -228,6 +228,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_CollisionDetection
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 203033255898130489, guid: 70dea6212676183448986ecdbf6d9061,
+        type: 3}
+      propertyPath: m_BodyType
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 203033255898130490, guid: 70dea6212676183448986ecdbf6d9061,
         type: 3}
@@ -1027,7 +1032,7 @@ PrefabInstance:
     - target: {fileID: 522316235103205886, guid: 06b06051b57eb9f41a3e9e59f979669f,
         type: 3}
       propertyPath: trackNumber
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 522316235103205886, guid: 06b06051b57eb9f41a3e9e59f979669f,
         type: 3}
@@ -1187,8 +1192,12 @@ MonoBehaviour:
   numberOfBars: 2
   endPosition: {x: 0, y: 0, z: 0}
   sampleBeat: {fileID: 1704829559}
-  Cam2DShake: {fileID: 0}
-  player: {fileID: 0}
+  Cam2DShake: {fileID: 1715405713}
+  notesInTrack1: 3
+  notesInTrack2: 2
+  notesInTrack3: 4
+  notesInTrack4: 4
+  player: {fileID: 1974096312}
 --- !u!1 &248788926
 GameObject:
   m_ObjectHideFlags: 0
@@ -1608,7 +1617,7 @@ PrefabInstance:
     - target: {fileID: 522316235103205886, guid: 06b06051b57eb9f41a3e9e59f979669f,
         type: 3}
       propertyPath: trackNumber
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 522316235103205886, guid: 06b06051b57eb9f41a3e9e59f979669f,
         type: 3}
@@ -1639,7 +1648,7 @@ PrefabInstance:
         type: 3}
       propertyPath: mySound
       value: 
-      objectReference: {fileID: 8300000, guid: c40e5a7e464845d44bca74e0e0aadc10, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 203033255898130489, guid: 70dea6212676183448986ecdbf6d9061,
         type: 3}
       propertyPath: m_Mass
@@ -1649,6 +1658,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_CollisionDetection
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 203033255898130489, guid: 70dea6212676183448986ecdbf6d9061,
+        type: 3}
+      propertyPath: m_BodyType
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 203033255898130490, guid: 70dea6212676183448986ecdbf6d9061,
         type: 3}
@@ -2008,7 +2022,7 @@ PrefabInstance:
     - target: {fileID: 522316235103205886, guid: 06b06051b57eb9f41a3e9e59f979669f,
         type: 3}
       propertyPath: trackNumber
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 522316235103205886, guid: 06b06051b57eb9f41a3e9e59f979669f,
         type: 3}
@@ -3495,7 +3509,7 @@ GameObject:
   - component: {fileID: 1424911309}
   m_Layer: 0
   m_Name: LoopManager
-  m_TagString: Untagged
+  m_TagString: looper
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3630,7 +3644,7 @@ PrefabInstance:
     - target: {fileID: 522316235103205886, guid: 06b06051b57eb9f41a3e9e59f979669f,
         type: 3}
       propertyPath: trackNumber
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 522316235103205886, guid: 06b06051b57eb9f41a3e9e59f979669f,
         type: 3}
@@ -21040,6 +21054,7 @@ GameObject:
   - component: {fileID: 1715405710}
   - component: {fileID: 1715405712}
   - component: {fileID: 1715405711}
+  - component: {fileID: 1715405713}
   m_Layer: 0
   m_Name: SecondCamera
   m_TagString: Untagged
@@ -21068,7 +21083,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1715405709}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &1715405712
 Camera:
   m_ObjectHideFlags: 0
@@ -21112,6 +21127,22 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &1715405713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1715405709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b650aff9216a2b44687cf82fa3386faf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camTransform: {fileID: 0}
+  shakeDuration: 0
+  shakeAmount: 0.7
+  decreaseFactor: 1
 --- !u!1001 &1746316471
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21123,7 +21154,7 @@ PrefabInstance:
         type: 3}
       propertyPath: mySound
       value: 
-      objectReference: {fileID: 8300000, guid: 1fcef53b9ebb5e2479c84e8aaf2896dc, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 203033255898130488, guid: 70dea6212676183448986ecdbf6d9061,
         type: 3}
       propertyPath: trackNumber
@@ -21138,6 +21169,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_CollisionDetection
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 203033255898130489, guid: 70dea6212676183448986ecdbf6d9061,
+        type: 3}
+      propertyPath: m_BodyType
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 203033255898130490, guid: 70dea6212676183448986ecdbf6d9061,
         type: 3}
@@ -21644,6 +21680,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 217715416}
     m_Modifications:
+    - target: {fileID: 203033255898130488, guid: 70dea6212676183448986ecdbf6d9061,
+        type: 3}
+      propertyPath: mySound
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 203033255898130489, guid: 70dea6212676183448986ecdbf6d9061,
         type: 3}
       propertyPath: m_Mass
@@ -21653,6 +21694,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_CollisionDetection
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 203033255898130489, guid: 70dea6212676183448986ecdbf6d9061,
+        type: 3}
+      propertyPath: m_BodyType
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 203033255898130490, guid: 70dea6212676183448986ecdbf6d9061,
         type: 3}
