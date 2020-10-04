@@ -51,7 +51,8 @@ public class PlayerBehavior : MonoBehaviour
             //transform.rotation = Quaternion.Euler(new Vector3(0, 0, -90));
             playerAnim.SetBool("right", true);
             playerAnim.SetBool("left", false);
-            gameObject.GetComponent<SpriteRenderer>().flipX = false;
+            transform.localScale = new Vector3(1, 1, 1);
+            //gameObject.GetComponent<SpriteRenderer>().flipX = false;
 
         }
 
@@ -60,7 +61,8 @@ public class PlayerBehavior : MonoBehaviour
             //transform.rotation = Quaternion.Euler(new Vector3(0, 0, 90));
             playerAnim.SetBool("right", false);
             playerAnim.SetBool("left", true);
-            gameObject.GetComponent<SpriteRenderer>().flipX = true;
+            transform.localScale = new Vector3(-1, 1, 1);
+            //gameObject.GetComponent<SpriteRenderer>().flipX = true;
         }
 
         if (vInput > 0)
@@ -83,15 +85,23 @@ public class PlayerBehavior : MonoBehaviour
 
         if(Input.GetMouseButtonDown(0))
         {
-            IEnumerator attack = attackCoroutine();
-            StartCoroutine(attack);
+           // IEnumerator attack = attackCoroutine();
+            //StartCoroutine(attack);
 
             RaycastHit2D hitCircle = Physics2D.CircleCast(attackPos.position, attackRadius, Vector2.up, Mathf.Infinity, enemies);
+            Collider2D coll = Physics2D.OverlapCircle(attackPos.position, attackRadius, enemies);
             Debug.Log(hitCircle.collider);
+            if(coll !=null)
+            {
+                coll.GetComponent<enemyBehavior>().playSound();
+            }
+            /*
             if(hitCircle.collider !=null)
             {
                 hitCircle.collider.GetComponent<enemyBehavior>().playSound();
             }
+            */
+
         }
 
         if(Input.GetMouseButton(1))
@@ -112,9 +122,9 @@ public class PlayerBehavior : MonoBehaviour
 
     IEnumerator attackCoroutine()
     {
-        attackCone.SetActive(true);
+        //attackCone.SetActive(true);
         yield return new WaitForSeconds(0.2f);
-        attackCone.SetActive(false);
+        //attackCone.SetActive(false);
 
     }
 }

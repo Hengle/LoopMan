@@ -1017,8 +1017,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BPM: 90
+  numberOfBars: 2
   endPosition: {x: 0, y: 0, z: 0}
   sampleBeat: {fileID: 1704829559}
+  Cam2DShake: {fileID: 0}
+  player: {fileID: 0}
 --- !u!1 &248788926
 GameObject:
   m_ObjectHideFlags: 0
@@ -1214,7 +1217,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -99
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -3521,7 +3524,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -99
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -5680,7 +5683,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1715405710}
   - component: {fileID: 1715405712}
-  - component: {fileID: 1715405711}
   m_Layer: 0
   m_Name: SecondCamera
   m_TagString: Untagged
@@ -5702,14 +5704,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!81 &1715405711
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1715405709}
-  m_Enabled: 1
 --- !u!20 &1715405712
 Camera:
   m_ObjectHideFlags: 0
@@ -6143,6 +6137,7 @@ MonoBehaviour:
   enemies:
     serializedVersion: 2
     m_Bits: 256
+  recording: 0
   playerAnim: {fileID: 1974096316}
 --- !u!212 &1974096313
 SpriteRenderer:
@@ -6182,8 +6177,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
+  m_SortingOrder: 19
+  m_Sprite: {fileID: 21300000, guid: e27208b8f162b42aab54a703b6117cc1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -6191,7 +6186,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1974096314

@@ -7,6 +7,7 @@ public class PlayheadBehavior : MonoBehaviour
     // Start is called before the first frame update
     private IEnumerator looper;
     public int BPM = 90;
+    public int numberOfBars = 1;
     private float beatWidth;
     private float timeForBar;
     public Vector3 endPosition;
@@ -50,9 +51,9 @@ public class PlayheadBehavior : MonoBehaviour
         beatWidth = sampleBeat.GetComponent<Transform>().localScale.x;
         
         Debug.Log("beatwidth " + beatWidth) ;
-        timeForBar = 4.0f * (60.0f / BPM);
+        timeForBar = numberOfBars *  4.0f * (60.0f / BPM);
         Debug.Log("1 beat time " + 60.0f / (4.0f*BPM));
-        endPosition = transform.position + new Vector3(4 * 4 * beatWidth, 0, 0) ;
+        endPosition = transform.position + new Vector3(4 * 4 * numberOfBars* beatWidth, 0, 0) ;
         //IEnumerator moveHeader = MoveToPosition(transform, endPosition, timeForBar);
         // StartCoroutine(moveHeader);
         IEnumerator mainLoop = Looper();
