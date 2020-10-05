@@ -174,7 +174,7 @@ public class PlayerBehavior : MonoBehaviour
     IEnumerator attackCoroutine()
     {
         Vector2 initialPos = transform.position;
-        float offset = 0.6f;
+        float offset = 0.4f;
         if(playerAnim.GetBool("right"))
         {
             transform.position = initialPos + Vector2.right * new Vector2(offset, 0);
@@ -194,7 +194,7 @@ public class PlayerBehavior : MonoBehaviour
         //attackCone.SetActive(true);
         playerAnim.SetBool("attacking", true);
         GetComponent<CircleCollider2D>().enabled = false;
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.2f);
         playerAnim.SetBool("attacking", false);
         GetComponent<CircleCollider2D>().enabled = true;
         
