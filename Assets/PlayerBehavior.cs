@@ -13,15 +13,16 @@ public class PlayerBehavior : MonoBehaviour
     public Transform attackPos;
     public float attackRadius = 0.5f;
     public LayerMask enemies;
-
+    public GameObject recordingPrefab;
     public bool recording = false;
-
-
+    PlayheadBehavior playHead;
+    public RecordingBehavior currentRecording;
     public Animator playerAnim;
 
 
     void Start()
     {
+        playHead = GameObject.FindGameObjectWithTag("playHead").GetComponent<PlayheadBehavior>();
         myRb = GetComponent<Rigidbody2D>();
     }
 
@@ -136,15 +137,31 @@ public class PlayerBehavior : MonoBehaviour
             */
 
         }
-
+        //on right click down, begin a recording
         if(Input.GetMouseButton(1))
         {
+            
             GetComponent<SpriteRenderer>().color =  new Color(1,0,0,1);
+
+            if (!recording)
+            {
+                recording = true;
+                GameObject newRecordingGO = Instantiate(recordingPrefab, Vector3.zero, Quaternion.identity);
+                currentRecording = newRecordingGO.GetComponent<RecordingBehavior>();
+                currentRecording.createRecording(playHead.ticker, transform,playHead);
+            }
+
             recording = true;
         } else
         {
             recording = false;
+
+            if(currentRecording!=null)
+            {
+                currentRecording.stopRecording();
+            }
             GetComponent<SpriteRenderer>().color = Color.white;
+            
         }
 
         
@@ -157,7 +174,7 @@ public class PlayerBehavior : MonoBehaviour
     IEnumerator attackCoroutine()
     {
         Vector2 initialPos = transform.position;
-        float offset = 0.4f;
+        float offset = 0.6f;
         if(playerAnim.GetBool("right"))
         {
             transform.position = initialPos + Vector2.right * new Vector2(offset, 0);
@@ -175,11 +192,28 @@ public class PlayerBehavior : MonoBehaviour
         }
         
         //attackCone.SetActive(true);
-  playerAnim.SetBool("attacking", true);
-        
-        yield return new WaitForSeconds(0.1f);
+         playerAnim.SetBool("attacking", true);
+        GetComponent<CircleCollider2D>().enabled = false;
+        yield return new WaitForSeconds(0.3f);
         playerAnim.SetBool("attacking", false);
-        transform.position = initialPos;
+        GetComponent<CircleCollider2D>().enabled = true;
+        Vector2 currentPos = transform.position;
+        if (playerAnim.GetBool("right"))
+        {
+            transform.position = currentPos - Vector2.right * new Vector2(offset, 0);
+        }
+        else if (playerAnim.GetBool("left"))
+        {
+            transform.position = currentPos + Vector2.right * new Vector2(offset, 0);
+        }
+        else if (playerAnim.GetBool("up"))
+        {
+            transform.position = currentPos - Vector2.up * new Vector2(0, offset);
+        }
+        else if (playerAnim.GetBool("down"))
+        {
+            transform.position = currentPos + Vector2.up * new Vector2(0, offset);
+        }
         //attackCone.SetActive(false);
 
     }

@@ -25,6 +25,12 @@ public class PlayheadBehavior : MonoBehaviour
     public int notesInTrack2 = 4;
     public int notesInTrack3 = 4;
     public int notesInTrack4 = 4;
+    public bool track1Complete = false;
+    public bool track2Complete = false;
+    public bool track3Complete = false;
+    public bool track4Complete = false;
+    public float ticker = 0.0f;
+    public float time = 0f;
     //update this to increase instrument count
     new List<NoteBehavior> overlappingNotes = new List<NoteBehavior> ();
     public PlayerBehavior player;
@@ -65,11 +71,16 @@ public class PlayheadBehavior : MonoBehaviour
         // StartCoroutine(moveHeader);
         IEnumerator mainLoop = Looper();
         StartCoroutine(mainLoop);
+        track1Complete = false;
+        track2Complete = false;
+        track3Complete = false;
+        track4Complete = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        ticker++;
         /*
         if (!loopStarted)
         {
@@ -80,7 +91,7 @@ public class PlayheadBehavior : MonoBehaviour
         */
 
         //reseting loop when right mouse is released!
-
+        TrackCompleteCheck();
         if(Input.GetMouseButtonUp(1))
         {
 
@@ -99,6 +110,11 @@ public class PlayheadBehavior : MonoBehaviour
                        
                     }
                     Cam2DShake.shakeDuration = 0.1f;
+                    //destroy recording on error
+                    if (player.currentRecording.gameObject != null)
+                    {
+                        Destroy(player.currentRecording.gameObject);
+                    }
                     activeNotes1 = new List<NoteBehavior>();
                 }
             }
@@ -117,6 +133,10 @@ public class PlayheadBehavior : MonoBehaviour
                         
                     }
                     Cam2DShake.shakeDuration = 0.1f;
+                    if (player.currentRecording.gameObject != null)
+                    {
+                        Destroy(player.currentRecording.gameObject);
+                    }
                     activeNotes2 = new List<NoteBehavior>();
                 }
             }
@@ -135,6 +155,10 @@ public class PlayheadBehavior : MonoBehaviour
                        
                     }
                     Cam2DShake.shakeDuration = 0.1f;
+                    if (player.currentRecording != null)
+                    {
+                        Destroy(player.currentRecording.gameObject);
+                    }
                     activeNotes3 = new List<NoteBehavior>();
                 }
             }
@@ -154,13 +178,40 @@ public class PlayheadBehavior : MonoBehaviour
                         
                     }
                     Cam2DShake.shakeDuration = 0.1f;
+                    if (player.currentRecording.gameObject != null)
+                    {
+                        Destroy(player.currentRecording.gameObject);
+                    }
                     activeNotes4 = new List<NoteBehavior>();
                 }
             }
 
         }
     }
+    
+    void TrackCompleteCheck()
+    {
+        if(activeNotes1.Count == notesInTrack1)
+        {
+            track1Complete = true;
+        }
 
+        if (activeNotes2.Count == notesInTrack2)
+        {
+            track2Complete = true;
+        }
+
+        if (activeNotes3.Count == notesInTrack3)
+        {
+            track3Complete = true;
+        }
+
+        if (activeNotes4.Count == notesInTrack4)
+        {
+            track4Complete = true;
+        }
+
+    }
     public IEnumerator Looper()
     {
         while(true)
@@ -169,9 +220,10 @@ public class PlayheadBehavior : MonoBehaviour
                 IEnumerator moveHeader = MoveToPosition(transform, endPosition, timeForBar);
                 StartCoroutine(moveHeader);
                 barRunning = true;
-                yield return new WaitForSeconds(timeForBar);
+                yield return new WaitForSecondsRealtime(timeForBar);
                 transform.position = initialPosition;
                 barRunning = false;
+                ticker = 0;
 
             }
             
@@ -197,18 +249,22 @@ public class PlayheadBehavior : MonoBehaviour
     //Check for timed presses!
     void checkTrack1(int a)
     {
-        bool matchFound = false;
-        Debug.Log("Checking track 1");
-        for(int i=0; i<overlappingNotes.Count;i++)
+        if (!track1Complete)
         {
-            if(overlappingNotes[i].trackNumber ==1 )
+            bool matchFound = false;
+            Debug.Log("Checking track 1");
+            for (int i = 0; i < overlappingNotes.Count; i++)
             {
-                overlappingNotes[i].setActive();
-                activeNotes1.Add(overlappingNotes[i]);
-                matchFound = true;
-            } 
-            
-        }
+                if (overlappingNotes[i].trackNumber == 1)
+                {
+                    overlappingNotes[i].setActive();
+                    activeNotes1.Add(overlappingNotes[i]);
+                    matchFound = true;
+                    MyEventSystem.successfulNote(1);
+                }
+
+            }
+        
 
         if(!matchFound)
         {
@@ -217,81 +273,112 @@ public class PlayheadBehavior : MonoBehaviour
                 n.setInactive();
                 Cam2DShake.shakeDuration = 0.1f;
                 activeNotes1 = new List<NoteBehavior>();
-            }
+                    if (player.currentRecording.gameObject != null)
+                    {
+                        Destroy(player.currentRecording.gameObject);
+                    }
+
+                }
+        }
         }
     }
 
     void checkTrack2(int a)
     {
-        bool matchFound = false;
-        for (int i = 0; i < overlappingNotes.Count; i++)
+        if (!track2Complete)
         {
-            if (overlappingNotes[i].trackNumber == 2)
+            bool matchFound = false;
+            for (int i = 0; i < overlappingNotes.Count; i++)
             {
-                overlappingNotes[i].setActive();
-                activeNotes2.Add(overlappingNotes[i]);
-                matchFound = true;
-            }
-            
-        }
+                if (overlappingNotes[i].trackNumber == 2)
+                {
+                    overlappingNotes[i].setActive();
+                    activeNotes2.Add(overlappingNotes[i]);
+                    matchFound = true;
+                    MyEventSystem.successfulNote(1);
 
-        if (!matchFound)
-        {
-            foreach (NoteBehavior n in activeNotes2)
+                }
+
+            }
+
+            if (!matchFound)
             {
-                n.setInactive();
-                Cam2DShake.shakeDuration = 0.1f;
-                activeNotes2 = new List<NoteBehavior>();
+                foreach (NoteBehavior n in activeNotes2)
+                {
+                    n.setInactive();
+                    Cam2DShake.shakeDuration = 0.1f;
+                    activeNotes2 = new List<NoteBehavior>();
+                    if (player.currentRecording.gameObject != null)
+                    {
+                        Destroy(player.currentRecording.gameObject);
+                    }
+                }
             }
         }
     }
 
     void checkTrack3(int a)
     {
-        bool matchFound = false;
-        for (int i = 0; i < overlappingNotes.Count; i++)
+        if (!track3Complete)
         {
-            if (overlappingNotes[i].trackNumber == 3)
+            bool matchFound = false;
+            for (int i = 0; i < overlappingNotes.Count; i++)
             {
-                overlappingNotes[i].setActive();
-                activeNotes3.Add(overlappingNotes[i]);
-                matchFound = true;
-            }
-           
-        }
+                if (overlappingNotes[i].trackNumber == 3)
+                {
+                    overlappingNotes[i].setActive();
+                    activeNotes3.Add(overlappingNotes[i]);
+                    matchFound = true;
+                    MyEventSystem.successfulNote(1);
+                }
 
-        if (!matchFound)
-        {
-            foreach (NoteBehavior n in activeNotes3)
+            }
+
+            if (!matchFound)
             {
-                n.setInactive();
-                Cam2DShake.shakeDuration = 0.1f;
-                activeNotes2 = new List<NoteBehavior>();
+                foreach (NoteBehavior n in activeNotes3)
+                {
+                    n.setInactive();
+                    Cam2DShake.shakeDuration = 0.1f;
+                    activeNotes2 = new List<NoteBehavior>();
+                    if (player.currentRecording.gameObject != null)
+                    {
+                        Destroy(player.currentRecording.gameObject);
+                    }
+                }
             }
         }
     }
 
     void checkTrack4(int a)
     {
-        bool matchFound = false;
-        for (int i = 0; i < overlappingNotes.Count; i++)
+        if (!track4Complete)
         {
-            if (overlappingNotes[i].trackNumber == 4)
+            bool matchFound = false;
+            for (int i = 0; i < overlappingNotes.Count; i++)
             {
-                overlappingNotes[i].setActive();
-                activeNotes4.Add(overlappingNotes[i]);
-                matchFound = true;
-            }
-          
-        }
+                if (overlappingNotes[i].trackNumber == 4)
+                {
+                    overlappingNotes[i].setActive();
+                    activeNotes4.Add(overlappingNotes[i]);
+                    matchFound = true;
+                    MyEventSystem.successfulNote(1);
+                }
 
-        if (!matchFound)
-        {
-            foreach (NoteBehavior n in activeNotes4)
+            }
+
+            if (!matchFound)
             {
-                n.setInactive();
-                Cam2DShake.shakeDuration = 0.1f;
-                activeNotes4 = new List<NoteBehavior>();
+                foreach (NoteBehavior n in activeNotes4)
+                {
+                    n.setInactive();
+                    Cam2DShake.shakeDuration = 0.1f;
+                    activeNotes4 = new List<NoteBehavior>();
+                    if (player.currentRecording.gameObject != null)
+                    {
+                        Destroy(player.currentRecording.gameObject);
+                    }
+                }
             }
         }
     }

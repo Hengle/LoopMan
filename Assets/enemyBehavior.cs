@@ -14,6 +14,7 @@ public class enemyBehavior : MonoBehaviour
     public ParticleSystem ps;
     public Color psColor;
     public LoopManager loopManager;
+    private bool enabled = true;
     void Start()
     {
         enemyManager = GameObject.FindGameObjectWithTag("enemyManager").GetComponent<EnemySoundManager>();
@@ -58,23 +59,26 @@ public class enemyBehavior : MonoBehaviour
         ps.startColor = psColor;
         enemyManager.playSound(mySound);
         ps.Play();
-        if (recording)
+        if (enabled)
         {
-            if (trackNumber == 1)
+            if (recording)
             {
-                MyEventSystem.track1Hit(1);
-            }
-            if (trackNumber == 2)
-            {
-                MyEventSystem.track2Hit(1);
-            }
-            if (trackNumber == 3)
-            {
-                MyEventSystem.track3Hit(1);
-            }
-            if (trackNumber == 4)
-            {
-                MyEventSystem.track4Hit(1);
+                if (trackNumber == 1)
+                {
+                    MyEventSystem.track1Hit(1);
+                }
+                if (trackNumber == 2)
+                {
+                    MyEventSystem.track2Hit(1);
+                }
+                if (trackNumber == 3)
+                {
+                    MyEventSystem.track3Hit(1);
+                }
+                if (trackNumber == 4)
+                {
+                    MyEventSystem.track4Hit(1);
+                }
             }
         }
     }
