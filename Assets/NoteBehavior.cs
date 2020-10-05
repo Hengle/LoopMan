@@ -9,7 +9,8 @@ public class NoteBehavior : MonoBehaviour
     public bool active = false;
     private SpriteRenderer mySprite;
     private float noteWidth = 1;
-    private  Color inactiveColor;
+    public  Color inactiveColor;
+    public Color activeColor;
     void Start()
     {
         mySprite = GetComponent<SpriteRenderer>();
@@ -28,7 +29,7 @@ public class NoteBehavior : MonoBehaviour
     public void setActive()
     {
         active = true;
-        mySprite.color = new Color(inactiveColor.r, inactiveColor.g, inactiveColor.b, 1);
+        mySprite.color = activeColor;
     }
 
     public void setInactive()
