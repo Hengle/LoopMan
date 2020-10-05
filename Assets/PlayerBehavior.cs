@@ -192,28 +192,12 @@ public class PlayerBehavior : MonoBehaviour
         }
         
         //attackCone.SetActive(true);
-         playerAnim.SetBool("attacking", true);
+        playerAnim.SetBool("attacking", true);
         GetComponent<CircleCollider2D>().enabled = false;
         yield return new WaitForSeconds(0.3f);
         playerAnim.SetBool("attacking", false);
         GetComponent<CircleCollider2D>().enabled = true;
-        Vector2 currentPos = transform.position;
-        if (playerAnim.GetBool("right"))
-        {
-            transform.position = currentPos - Vector2.right * new Vector2(offset, 0);
-        }
-        else if (playerAnim.GetBool("left"))
-        {
-            transform.position = currentPos + Vector2.right * new Vector2(offset, 0);
-        }
-        else if (playerAnim.GetBool("up"))
-        {
-            transform.position = currentPos - Vector2.up * new Vector2(0, offset);
-        }
-        else if (playerAnim.GetBool("down"))
-        {
-            transform.position = currentPos + Vector2.up * new Vector2(0, offset);
-        }
+        
         //attackCone.SetActive(false);
 
     }
