@@ -518,7 +518,7 @@ PrefabInstance:
     - target: {fileID: 522316235103205886, guid: 06b06051b57eb9f41a3e9e59f979669f,
         type: 3}
       propertyPath: active
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06b06051b57eb9f41a3e9e59f979669f, type: 3}
@@ -1040,6 +1040,13 @@ MonoBehaviour:
   notesInTrack2: 3
   notesInTrack3: 1
   notesInTrack4: 0
+  track1Complete: 0
+  track2Complete: 0
+  track3Complete: 0
+  track4Complete: 0
+  ticker: 0
+  time: 0
+  streak: 0
   player: {fileID: 1974096312}
 --- !u!1 &248788926
 GameObject:
@@ -1521,6 +1528,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trackNumber: 4
   active: 1
+  inactiveColor: {r: 0, g: 0, b: 0, a: 0}
+  activeColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!61 &427624143
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1663,7 +1672,7 @@ PrefabInstance:
     - target: {fileID: 522316235103205886, guid: 06b06051b57eb9f41a3e9e59f979669f,
         type: 3}
       propertyPath: active
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06b06051b57eb9f41a3e9e59f979669f, type: 3}
@@ -1931,7 +1940,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trackNumber: 1
-  active: 0
+  active: 1
+  inactiveColor: {r: 0, g: 0, b: 0, a: 0}
+  activeColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!212 &656933999
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2077,7 +2088,7 @@ PrefabInstance:
     - target: {fileID: 522316235103205886, guid: 06b06051b57eb9f41a3e9e59f979669f,
         type: 3}
       propertyPath: active
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06b06051b57eb9f41a3e9e59f979669f, type: 3}
@@ -2413,6 +2424,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trackNumber: 4
   active: 1
+  inactiveColor: {r: 0, g: 0, b: 0, a: 0}
+  activeColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!61 &803185519
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2555,7 +2568,7 @@ PrefabInstance:
     - target: {fileID: 522316235103205886, guid: 06b06051b57eb9f41a3e9e59f979669f,
         type: 3}
       propertyPath: active
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06b06051b57eb9f41a3e9e59f979669f, type: 3}
@@ -2962,6 +2975,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trackNumber: 4
   active: 1
+  inactiveColor: {r: 0, g: 0, b: 0, a: 0}
+  activeColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!61 &1025592123
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3107,6 +3122,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trackNumber: 4
   active: 1
+  inactiveColor: {r: 0, g: 0, b: 0, a: 0}
+  activeColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!61 &1111105921
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3440,7 +3457,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trackNumber: 1
-  active: 0
+  active: 1
+  inactiveColor: {r: 0, g: 0, b: 0, a: 0}
+  activeColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!61 &1586534256
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6203,7 +6222,9 @@ MonoBehaviour:
   enemies:
     serializedVersion: 2
     m_Bits: 256
+  recordingPrefab: {fileID: 0}
   recording: 0
+  currentRecording: {fileID: 0}
   playerAnim: {fileID: 1974096316}
 --- !u!212 &1974096313
 SpriteRenderer:
@@ -6440,7 +6461,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trackNumber: 1
-  active: 0
+  active: 1
+  inactiveColor: {r: 0, g: 0, b: 0, a: 0}
+  activeColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!50 &2104649832
 Rigidbody2D:
   serializedVersion: 4
@@ -6626,7 +6649,7 @@ PrefabInstance:
     - target: {fileID: 522316235103205886, guid: 06b06051b57eb9f41a3e9e59f979669f,
         type: 3}
       propertyPath: active
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06b06051b57eb9f41a3e9e59f979669f, type: 3}

@@ -1193,7 +1193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48c4a25e4b50b5d4db7544ec4f09e1f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BPM: 90
+  BPM: 160
   numberOfBars: 2
   endPosition: {x: 0, y: 0, z: 0}
   sampleBeat: {fileID: 1704829559}
