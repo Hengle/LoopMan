@@ -46,10 +46,7 @@ public class RecordingBehavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        t1 = GameObject.FindGameObjectWithTag("enemy1").GetComponent<Transform>();
-        t2 = GameObject.FindGameObjectWithTag("enemy2").GetComponent<Transform>();
-        t3 = GameObject.FindGameObjectWithTag("enemy3").GetComponent<Transform>();
-        t4 = GameObject.FindGameObjectWithTag("enemy4").GetComponent<Transform>();
+       
     }
 
     void registerEnemies()
@@ -137,6 +134,7 @@ public class RecordingBehavior : MonoBehaviour
             
             int correspondingIndex = playHeadTicks.IndexOf(tick);
             // enemyGhosts
+            /*
             if (enemy1Trans != null)
             {
                 GameObject enemy1Ghost = Instantiate(enemy1Trans.gameObject);
@@ -214,8 +212,8 @@ public class RecordingBehavior : MonoBehaviour
                 }
                 enemy4GhostSettings.initializeGhost(enemy4Pos.GetRange(lowLimit, 20), null, playHead, tick);
             }
-
-            GameObject ghostForTick = Instantiate(playerTrans.gameObject);
+            */
+            GameObject ghostForTick = Instantiate(playerTrans.gameObject,transform);
             Destroy(ghostForTick.GetComponent<PlayerBehavior>());
             Destroy(ghostForTick.GetComponent<CircleCollider2D>());
             ghostForTick.AddComponent<GhostBehavior>();
@@ -289,6 +287,7 @@ public class RecordingBehavior : MonoBehaviour
             playerStates.Add(playerRends.sprite);
             playHeadTicks.Add(playHead.ticker);
             
+            /*
           
                 enemy1Pos.Add(t1.position);
           
@@ -300,6 +299,7 @@ public class RecordingBehavior : MonoBehaviour
           
             
              enemy4Pos.Add(t4.position);
+            */
            
         }
 

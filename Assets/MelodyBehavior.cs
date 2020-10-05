@@ -9,6 +9,8 @@ public class MelodyBehavior : MonoBehaviour
     AudioSource mySource;
     bool readyToPlay = false;
     bool coroutStarted = false;
+    public GameObject boomBox;
+    int count = 0;
     void Start()
     {
         mySource = GetComponent<AudioSource>();
@@ -43,6 +45,19 @@ public class MelodyBehavior : MonoBehaviour
                 mySource.Play();
                 }
             }
+        }
+
+        if(readyToPlay && mySource.isPlaying)
+        {
+            if(playHead.ticker ==1)
+            {
+                count++;
+            }
+        }
+
+        if(count==4)
+        {
+            boomBox.SetActive(true);
         }
     }
 
