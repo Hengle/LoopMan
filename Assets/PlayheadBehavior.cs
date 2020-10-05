@@ -133,7 +133,7 @@ public class PlayheadBehavior : MonoBehaviour
                         
                     }
                     Cam2DShake.shakeDuration = 0.1f;
-                    if (player.currentRecording.gameObject != null)
+                    if (player.currentRecording != null)
                     {
                         Destroy(player.currentRecording.gameObject);
                     }
@@ -273,10 +273,12 @@ public class PlayheadBehavior : MonoBehaviour
                 n.setInactive();
                 Cam2DShake.shakeDuration = 0.1f;
                 activeNotes1 = new List<NoteBehavior>();
+                    /*
                     if (player.currentRecording.gameObject != null)
                     {
                         Destroy(player.currentRecording.gameObject);
                     }
+                    */
 
                 }
         }
@@ -308,10 +310,12 @@ public class PlayheadBehavior : MonoBehaviour
                     n.setInactive();
                     Cam2DShake.shakeDuration = 0.1f;
                     activeNotes2 = new List<NoteBehavior>();
+                    /*
                     if (player.currentRecording.gameObject != null)
                     {
                         Destroy(player.currentRecording.gameObject);
                     }
+                    */
                 }
             }
         }
@@ -341,10 +345,12 @@ public class PlayheadBehavior : MonoBehaviour
                     n.setInactive();
                     Cam2DShake.shakeDuration = 0.1f;
                     activeNotes2 = new List<NoteBehavior>();
+                    /*
                     if (player.currentRecording.gameObject != null)
                     {
                         Destroy(player.currentRecording.gameObject);
                     }
+                    */
                 }
             }
         }
@@ -374,10 +380,12 @@ public class PlayheadBehavior : MonoBehaviour
                     n.setInactive();
                     Cam2DShake.shakeDuration = 0.1f;
                     activeNotes4 = new List<NoteBehavior>();
-                    if (player.currentRecording.gameObject != null)
-                    {
-                        Destroy(player.currentRecording.gameObject);
-                    }
+                    /*
+                   if (player.currentRecording.gameObject != null)
+                   {
+                       Destroy(player.currentRecording.gameObject);
+                   }
+                   */
                 }
             }
         }

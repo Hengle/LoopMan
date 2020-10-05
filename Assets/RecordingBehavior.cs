@@ -85,6 +85,10 @@ public class RecordingBehavior : MonoBehaviour
         MyEventSystem.successfulNote += noteSuccess;
     }
 
+    private void OnDestroy()
+    {
+        MyEventSystem.successfulNote -= noteSuccess;
+    }
     private void OnDisable()
     {
         MyEventSystem.successfulNote -= noteSuccess;

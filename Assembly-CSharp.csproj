@@ -66,6 +66,7 @@
     <Compile Include="Assets\CameraShake.cs" />
     <Compile Include="Assets\EnemySoundManager.cs" />
     <Compile Include="Assets\LoopManager.cs" />
+    <Compile Include="Assets\MelodyBehavior.cs" />
     <Compile Include="Assets\NoteBehavior.cs" />
     <Compile Include="Assets\PlayerBehavior.cs" />
     <Compile Include="Assets\PlayheadBehavior.cs" />
