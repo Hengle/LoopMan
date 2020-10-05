@@ -8,6 +8,10 @@ TagManager:
   - enemyManager
   - playerAttackBox
   - looper
+  - enemy1
+  - enemy2
+  - enemy3
+  - enemy4
   layers:
   - Default
   - TransparentFX
@@ -18,7 +22,7 @@ TagManager:
   - 
   - 
   - enemies
-  - 
+  - walls
   - 
   - 
   - 

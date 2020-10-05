@@ -31,6 +31,7 @@ public class PlayheadBehavior : MonoBehaviour
     public bool track4Complete = false;
     public float ticker = 0.0f;
     public float time = 0f;
+    public bool streak = false;
     //update this to increase instrument count
     new List<NoteBehavior> overlappingNotes = new List<NoteBehavior> ();
     public PlayerBehavior player;
@@ -194,6 +195,7 @@ public class PlayheadBehavior : MonoBehaviour
         if(activeNotes1.Count == notesInTrack1)
         {
             track1Complete = true;
+
         }
 
         if (activeNotes2.Count == notesInTrack2)
@@ -261,6 +263,7 @@ public class PlayheadBehavior : MonoBehaviour
                     activeNotes1.Add(overlappingNotes[i]);
                     matchFound = true;
                     MyEventSystem.successfulNote(1);
+                    streak = true;
                 }
 
             }
@@ -273,6 +276,7 @@ public class PlayheadBehavior : MonoBehaviour
                 n.setInactive();
                 Cam2DShake.shakeDuration = 0.1f;
                 activeNotes1 = new List<NoteBehavior>();
+                    streak = false;
                     /*
                     if (player.currentRecording.gameObject != null)
                     {
@@ -297,7 +301,8 @@ public class PlayheadBehavior : MonoBehaviour
                     overlappingNotes[i].setActive();
                     activeNotes2.Add(overlappingNotes[i]);
                     matchFound = true;
-                    MyEventSystem.successfulNote(1);
+                    MyEventSystem.successfulNote(2);
+                    streak = true;
 
                 }
 
@@ -316,6 +321,7 @@ public class PlayheadBehavior : MonoBehaviour
                         Destroy(player.currentRecording.gameObject);
                     }
                     */
+                    streak = false;
                 }
             }
         }
@@ -333,7 +339,8 @@ public class PlayheadBehavior : MonoBehaviour
                     overlappingNotes[i].setActive();
                     activeNotes3.Add(overlappingNotes[i]);
                     matchFound = true;
-                    MyEventSystem.successfulNote(1);
+                    MyEventSystem.successfulNote(3);
+                    streak = true;
                 }
 
             }
@@ -345,6 +352,7 @@ public class PlayheadBehavior : MonoBehaviour
                     n.setInactive();
                     Cam2DShake.shakeDuration = 0.1f;
                     activeNotes2 = new List<NoteBehavior>();
+                    streak = false;
                     /*
                     if (player.currentRecording.gameObject != null)
                     {
@@ -368,7 +376,8 @@ public class PlayheadBehavior : MonoBehaviour
                     overlappingNotes[i].setActive();
                     activeNotes4.Add(overlappingNotes[i]);
                     matchFound = true;
-                    MyEventSystem.successfulNote(1);
+                    MyEventSystem.successfulNote(4);
+                    streak = true;
                 }
 
             }
@@ -380,6 +389,7 @@ public class PlayheadBehavior : MonoBehaviour
                     n.setInactive();
                     Cam2DShake.shakeDuration = 0.1f;
                     activeNotes4 = new List<NoteBehavior>();
+                    streak = false;
                     /*
                    if (player.currentRecording.gameObject != null)
                    {

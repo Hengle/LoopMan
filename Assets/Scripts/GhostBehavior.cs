@@ -12,12 +12,16 @@ public class GhostBehavior : MonoBehaviour
     bool startPlayback = false;
     SpriteRenderer mySpriteRen;
     bool staticCloneCreated = false;
+    public bool player = false;
     
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        if(GetComponent<ParticleSystem>())
+        {
+            Destroy(GetComponent<ParticleSystem>());
+        }
     }
 
     public void initializeGhost(List<Vector3> pos, List<Sprite> sprites, PlayheadBehavior playhead, float beginTick)

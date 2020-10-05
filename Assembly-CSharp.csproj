@@ -63,16 +63,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\BackgroundBehavior.cs" />
     <Compile Include="Assets\CameraShake.cs" />
     <Compile Include="Assets\EnemySoundManager.cs" />
     <Compile Include="Assets\LoopManager.cs" />
     <Compile Include="Assets\MelodyBehavior.cs" />
+    <Compile Include="Assets\MovingEnemyBehavior.cs" />
     <Compile Include="Assets\NoteBehavior.cs" />
     <Compile Include="Assets\PlayerBehavior.cs" />
     <Compile Include="Assets\PlayheadBehavior.cs" />
     <Compile Include="Assets\RecordingBehavior.cs" />
     <Compile Include="Assets\Scripts\EventSystem.cs" />
     <Compile Include="Assets\Scripts\GhostBehavior.cs" />
+    <Compile Include="Assets\TutorialManager.cs" />
     <Compile Include="Assets\enemyBehavior.cs" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
