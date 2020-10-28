@@ -22110,7 +22110,7 @@ PrefabInstance:
     - target: {fileID: 595531130367689962, guid: e0e7d5032d71b39429061e3b7cd5e00b,
         type: 3}
       propertyPath: m_Name
-      value: Music UI and Systems
+      value: Music UI and Systems (Unpack in New Scene)
       objectReference: {fileID: 0}
     - target: {fileID: 2068866361718078754, guid: e0e7d5032d71b39429061e3b7cd5e00b,
         type: 3}
