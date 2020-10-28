@@ -6,6 +6,7 @@ public class LoopManager : MonoBehaviour
 {
     public AudioSource[] audioSources;
     public AudioClip[] sounds;
+   
 
     // we could have levels as an array of sounds
 
@@ -17,6 +18,7 @@ public class LoopManager : MonoBehaviour
         MyEventSystem.track2Event += playTrack2;
         MyEventSystem.track3Event += playTrack3;
         MyEventSystem.track4Event += playTrack4;
+        MyEventSystem.melodyEvent += playMelody;
     }
 
     private void OnDisable()
@@ -25,6 +27,7 @@ public class LoopManager : MonoBehaviour
         MyEventSystem.track2Event -= playTrack2;
         MyEventSystem.track3Event -= playTrack3;
         MyEventSystem.track4Event -= playTrack4;
+        MyEventSystem.melodyEvent -= playMelody;
     }
 
     void Start()
@@ -62,6 +65,11 @@ public class LoopManager : MonoBehaviour
     {
         audioSources[3].PlayOneShot(sounds[3]);
         audioSources[3].pitch = 1 / i;
+    }
+
+    public void playMelody(float i)
+    {
+        audioSources[4].Play();
     }
 
 }

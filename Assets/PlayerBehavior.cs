@@ -18,7 +18,7 @@ public class PlayerBehavior : MonoBehaviour
     PlayheadBehavior playHead;
     public RecordingBehavior currentRecording;
     public Animator playerAnim;
-
+    public int directionInteger = 0;
 
     void Start()
     {
@@ -46,6 +46,7 @@ public class PlayerBehavior : MonoBehaviour
             playerAnim.SetBool("up", false);
             playerAnim.SetBool("left", true);
             playerAnim.SetBool("right", true);
+            directionInteger = 2;
         }
         if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
         {
@@ -53,6 +54,7 @@ public class PlayerBehavior : MonoBehaviour
             playerAnim.SetBool("up", false);
             playerAnim.SetBool("left", true);
             playerAnim.SetBool("right", false);
+            directionInteger = 4;
         }
         if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
         {
@@ -60,6 +62,7 @@ public class PlayerBehavior : MonoBehaviour
             playerAnim.SetBool("up", true);
             playerAnim.SetBool("left", false);
             playerAnim.SetBool("right", false);
+            directionInteger = 1;
         }
         if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
         {
@@ -67,6 +70,7 @@ public class PlayerBehavior : MonoBehaviour
             playerAnim.SetBool("up", false);
             playerAnim.SetBool("left", false);
             playerAnim.SetBool("right", false);
+            directionInteger = 3;
         }
 
     }
@@ -127,7 +131,7 @@ public class PlayerBehavior : MonoBehaviour
             Debug.Log(hitCircle.collider);
             if(coll !=null)
             {
-                coll.GetComponent<enemyBehavior>().playSound();
+                coll.GetComponent<enemyBehavior>().playSound(directionInteger);
             }
             /*
             if(hitCircle.collider !=null)
@@ -142,13 +146,14 @@ public class PlayerBehavior : MonoBehaviour
         {
             
             GetComponent<SpriteRenderer>().color =  new Color(1,0,0,1);
-
+            // OLD recording code.
+           
             if (!recording)
             {
                 recording = true;
-                GameObject newRecordingGO = Instantiate(recordingPrefab, Vector3.zero, Quaternion.identity);
-                currentRecording = newRecordingGO.GetComponent<RecordingBehavior>();
-                currentRecording.createRecording(playHead.ticker, transform,playHead);
+               // GameObject newRecordingGO = Instantiate(recordingPrefab, Vector3.zero, Quaternion.identity);
+               // currentRecording = newRecordingGO.GetComponent<RecordingBehavior>();
+               // currentRecording.createRecording(playHead.ticker, transform,playHead);
             }
 
             recording = true;
@@ -156,10 +161,10 @@ public class PlayerBehavior : MonoBehaviour
         {
             recording = false;
 
-            if(currentRecording!=null)
-            {
-                currentRecording.stopRecording();
-            }
+         //   if(currentRecording!=null)
+           // {
+          //      currentRecording.stopRecording();
+          //  }
             GetComponent<SpriteRenderer>().color = Color.white;
             
         }

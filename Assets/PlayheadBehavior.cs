@@ -16,7 +16,7 @@ public class PlayheadBehavior : MonoBehaviour
     bool loopStarted = false;
     Vector3 initialPosition;
     Rigidbody2D myRb;
-    public CameraShake Cam2DShake;
+    private CameraShake Cam2DShake;
     new List<NoteBehavior> activeNotes1 = new List<NoteBehavior>();
     new List<NoteBehavior> activeNotes2 = new List<NoteBehavior>();
     new List<NoteBehavior> activeNotes3 = new List<NoteBehavior>();
@@ -34,7 +34,7 @@ public class PlayheadBehavior : MonoBehaviour
     public bool streak = false;
     //update this to increase instrument count
     new List<NoteBehavior> overlappingNotes = new List<NoteBehavior> ();
-    public PlayerBehavior player;
+    private PlayerBehavior player;
     
 
     private void OnEnable()
@@ -63,15 +63,17 @@ public class PlayheadBehavior : MonoBehaviour
         myRb = GetComponent<Rigidbody2D>();
         initialPosition = transform.position;
         beatWidth = sampleBeat.GetComponent<Transform>().localScale.x;
-        
+        Cam2DShake = GameObject.FindGameObjectWithTag("secondCam").GetComponent<CameraShake>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerBehavior>();
         Debug.Log("beatwidth " + beatWidth) ;
         timeForBar = numberOfBars *  4.0f * (60.0f / BPM);
         Debug.Log("1 beat time " + 60.0f / (4.0f*BPM));
         endPosition = transform.position + new Vector3(4 * 4 * numberOfBars* beatWidth, 0, 0) ;
         //IEnumerator moveHeader = MoveToPosition(transform, endPosition, timeForBar);
         // StartCoroutine(moveHeader);
-        IEnumerator mainLoop = Looper();
-        StartCoroutine(mainLoop);
+        // IEnumerator mainLoop = Looper();
+        //StartCoroutine(mainLoop);
+        setupLoop();
         track1Complete = false;
         track2Complete = false;
         track3Complete = false;
@@ -214,23 +216,44 @@ public class PlayheadBehavior : MonoBehaviour
         }
 
     }
+
+    public void setupLoop()
+    {
+        myRb.velocity = (endPosition - initialPosition) / timeForBar;
+        barRunning = true;
+    }
+
+    //OLD CODE BELOW
+    /*
     public IEnumerator Looper()
     {
-        while(true)
+        myRb.velocity = (endPosition - initialPosition) / timeForBar;
+        barRunning = true;
+
+        
+        while (true)
         {
-            if(!barRunning) { 
+            if(!barRunning) {
+                //set velocity to reach end position within given time.
+               
+
+               
+                
                 IEnumerator moveHeader = MoveToPosition(transform, endPosition, timeForBar);
                 StartCoroutine(moveHeader);
                 barRunning = true;
                 yield return new WaitForSecondsRealtime(timeForBar);
-                transform.position = initialPosition;
+                //transform.position = initialPosition;
                 barRunning = false;
                 ticker = 0;
+                
 
             }
             
         }
     }
+    */
+
     public IEnumerator MoveToPosition(Transform transform, Vector3 position, float timeToMove)
     {
         var currentPos = transform.position;
@@ -262,7 +285,7 @@ public class PlayheadBehavior : MonoBehaviour
                     overlappingNotes[i].setActive();
                     activeNotes1.Add(overlappingNotes[i]);
                     matchFound = true;
-                    MyEventSystem.successfulNote(1);
+                   // MyEventSystem.successfulNote(1);
                     streak = true;
                 }
 
@@ -301,7 +324,7 @@ public class PlayheadBehavior : MonoBehaviour
                     overlappingNotes[i].setActive();
                     activeNotes2.Add(overlappingNotes[i]);
                     matchFound = true;
-                    MyEventSystem.successfulNote(2);
+                    //MyEventSystem.successfulNote(2);
                     streak = true;
 
                 }
@@ -339,7 +362,7 @@ public class PlayheadBehavior : MonoBehaviour
                     overlappingNotes[i].setActive();
                     activeNotes3.Add(overlappingNotes[i]);
                     matchFound = true;
-                    MyEventSystem.successfulNote(3);
+                    //MyEventSystem.successfulNote(3);
                     streak = true;
                 }
 
@@ -351,7 +374,7 @@ public class PlayheadBehavior : MonoBehaviour
                 {
                     n.setInactive();
                     Cam2DShake.shakeDuration = 0.1f;
-                    activeNotes2 = new List<NoteBehavior>();
+                    activeNotes3 = new List<NoteBehavior>();
                     streak = false;
                     /*
                     if (player.currentRecording.gameObject != null)
@@ -376,7 +399,7 @@ public class PlayheadBehavior : MonoBehaviour
                     overlappingNotes[i].setActive();
                     activeNotes4.Add(overlappingNotes[i]);
                     matchFound = true;
-                    MyEventSystem.successfulNote(4);
+                   // MyEventSystem.successfulNote(4);
                     streak = true;
                 }
 
@@ -413,6 +436,15 @@ public class PlayheadBehavior : MonoBehaviour
                 overlappingNotes.Add(atttachedNote);
                 
             }
+        }
+
+        if(collision.CompareTag("playEnd"))
+        {
+
+            transform.position = initialPosition;
+            barRunning = false;
+            ticker = 0;
+
         }
         
         

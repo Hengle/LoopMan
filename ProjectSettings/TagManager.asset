@@ -12,6 +12,8 @@ TagManager:
   - enemy2
   - enemy3
   - enemy4
+  - playEnd
+  - secondCam
   layers:
   - Default
   - TransparentFX

@@ -54,7 +54,7 @@ public class enemyBehavior : MonoBehaviour
             StartCoroutine(glow);
         }
     }
-    public void playSound()
+    public void playSound(int directionInteger)
     {
         ps.startColor = psColor;
         enemyManager.playSound(mySound);
@@ -65,19 +65,19 @@ public class enemyBehavior : MonoBehaviour
             {
                 if (trackNumber == 1)
                 {
-                    MyEventSystem.track1Hit(1);
+                    MyEventSystem.track1Hit(directionInteger);
                 }
                 if (trackNumber == 2)
                 {
-                    MyEventSystem.track2Hit(1);
+                    MyEventSystem.track2Hit(directionInteger);
                 }
                 if (trackNumber == 3)
                 {
-                    MyEventSystem.track3Hit(1);
+                    MyEventSystem.track3Hit(directionInteger);
                 }
                 if (trackNumber == 4)
                 {
-                    MyEventSystem.track4Hit(1);
+                    MyEventSystem.track4Hit(directionInteger);
                 }
             }
         }

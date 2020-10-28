@@ -10,10 +10,12 @@ public class MelodyBehavior : MonoBehaviour
     bool readyToPlay = false;
     bool coroutStarted = false;
     public GameObject boomBox;
+    public GameObject melodyNoteGO;
     int count = 0;
     void Start()
     {
         mySource = GetComponent<AudioSource>();
+        melodyNoteGO.SetActive(false);
     }
 
     // Update is called once per frame
@@ -39,12 +41,16 @@ public class MelodyBehavior : MonoBehaviour
 
         if(readyToPlay)
         {
+            //OLD CODE handling playing.
+            /*
             if (playHead.ticker == 1)
             {
                 if (!mySource.isPlaying) { 
                 mySource.Play();
                 }
             }
+            */
+            //
         }
 
         if(readyToPlay && mySource.isPlaying)
@@ -65,6 +71,8 @@ public class MelodyBehavior : MonoBehaviour
     {
         float timeFor2Bars = playHead.numberOfBars * 4 * 60 / playHead.BPM;
         yield return new WaitForSeconds(timeFor2Bars-0.5f);
+        melodyNoteGO.SetActive(true);
+        //just create the gameObject which will trigger the loop.
         readyToPlay = true;
     }
 }

@@ -11,9 +11,21 @@ public class NoteBehavior : MonoBehaviour
     private float noteWidth = 1;
     public  Color inactiveColor;
     public Color activeColor;
+    public Animator attachedEnemyAnimator;
+    public Transform attachedEnemyTransform;
+    private GameObject myGhost;
+    public GameObject attackGhostPrefab;
+    private Animator attachedGhostAnimator;
+    private Transform attachedGhostTransform;
+    private Transform playerTransform;
+    private int playerFacingDirection;
+    private PlayerBehavior playerControls;
     void Start()
     {
+        playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        playerControls = playerTransform.gameObject.GetComponent<PlayerBehavior>();
         mySprite = GetComponent<SpriteRenderer>();
+        
         inactiveColor = mySprite.color;
         //activeColor = mySprite.color;
         noteWidth = transform.localScale.x;
@@ -30,12 +42,32 @@ public class NoteBehavior : MonoBehaviour
     {
         active = true;
         mySprite.color = activeColor;
+        recordGhost(playerTransform.position);
+    }
+
+    void recordGhost(Vector3 position)
+    {
+        if(myGhost==null)
+        {
+            myGhost = Instantiate(attackGhostPrefab, position, Quaternion.identity);
+            attachedGhostAnimator = myGhost.GetComponent<Animator>();
+            attachedGhostTransform = myGhost.transform;
+            playerFacingDirection = playerControls.directionInteger;
+           
+        } else
+        {
+            myGhost.transform.position = position;
+            attachedGhostTransform = myGhost.transform;
+            playerFacingDirection = playerControls.directionInteger;
+
+        }
     }
 
     public void setInactive()
     {
         active = false;
         mySprite.color = inactiveColor;
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -45,7 +77,29 @@ public class NoteBehavior : MonoBehaviour
         {
             if (collision.gameObject.CompareTag("playHead"))
             {
-
+                //play animations etc. only if its NOT a melody note.
+                if (trackNumber != 0)
+                {
+                    attachedEnemyAnimator.Play("Base Layer.enemy1Hit");
+                    //check ghost position with respect to enemy and set appropriate animation
+                    if (playerFacingDirection == 1)
+                    {
+                        attachedGhostAnimator.Play("Base Layer.ghostHitAnimation");
+                    }
+                    else if (playerFacingDirection == 2)
+                    {
+                        attachedGhostAnimator.Play("Base Layer.ghostHitRight");
+                    }
+                    else if (playerFacingDirection == 3)
+                    {
+                        attachedGhostAnimator.Play("Base Layer.ghostHitDown");
+                    }
+                    else if (playerFacingDirection == 4)
+                    {
+                        attachedGhostAnimator.Play("Base Layer.ghostHitLeft");
+                    }
+                }
+               // attachedGhostAnimator.Play("Base Layer.ghostHitAnimation");
                 if (trackNumber == 1)
                 {
                     MyEventSystem.track1Event(noteWidth);
@@ -61,6 +115,11 @@ public class NoteBehavior : MonoBehaviour
                 else if (trackNumber == 4)
                 {
                     MyEventSystem.track4Event(noteWidth);
+                } 
+                else if(trackNumber ==0)
+                {
+                    MyEventSystem.melodyEvent(noteWidth);
+                    active = false;
                 }
             }
         } else
