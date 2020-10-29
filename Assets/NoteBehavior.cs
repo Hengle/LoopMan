@@ -32,6 +32,17 @@ public class NoteBehavior : MonoBehaviour
         
     }
 
+    public void initializeNewNote()
+    {
+        playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        playerControls = playerTransform.gameObject.GetComponent<PlayerBehavior>();
+        mySprite = GetComponent<SpriteRenderer>();
+
+        inactiveColor = mySprite.color;
+        //activeColor = mySprite.color;
+        noteWidth = transform.localScale.x;
+        setActive();
+    }
     // Update is called once per frame
     void Update()
     {
@@ -40,6 +51,7 @@ public class NoteBehavior : MonoBehaviour
 
     public void setActive()
     {
+        
         active = true;
         mySprite.color = activeColor;
         recordGhost(playerTransform.position);

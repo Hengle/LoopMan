@@ -56,7 +56,7 @@ public class enemyBehavior : MonoBehaviour
     }
     public void playSound(int directionInteger)
     {
-        ps.startColor = psColor;
+        //ps.main.startColor = psColor;
         enemyManager.playSound(mySound);
         ps.Play();
         if (enabled)

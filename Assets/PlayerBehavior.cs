@@ -121,7 +121,7 @@ public class PlayerBehavior : MonoBehaviour
             //playerAnim.SetBool("left", false);
         }
 
-        if(Input.GetMouseButtonDown(0))
+        if(Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
         {
             IEnumerator attack = attackCoroutine();
             StartCoroutine(attack);
@@ -131,7 +131,15 @@ public class PlayerBehavior : MonoBehaviour
             Debug.Log(hitCircle.collider);
             if(coll !=null)
             {
-                coll.GetComponent<enemyBehavior>().playSound(directionInteger);
+                if (coll.GetComponent<enemyBehavior>() != null)
+                {
+                    coll.GetComponent<enemyBehavior>().playSound(directionInteger);
+                }
+
+                if (coll.GetComponent<FreestyleEnemyBehavior>() != null)
+                {
+                    coll.GetComponent<FreestyleEnemyBehavior>().playSound(directionInteger);
+                }
             }
             /*
             if(hitCircle.collider !=null)
@@ -142,7 +150,7 @@ public class PlayerBehavior : MonoBehaviour
 
         }
         //on right click down, begin a recording
-        if(Input.GetMouseButton(1))
+        if (Input.GetMouseButton(1) || Input.GetKey(KeyCode.LeftControl))
         {
             
             GetComponent<SpriteRenderer>().color =  new Color(1,0,0,1);
@@ -180,6 +188,7 @@ public class PlayerBehavior : MonoBehaviour
     {
         Vector2 initialPos = transform.position;
         float offset = 0.4f;
+        /*
         if(playerAnim.GetBool("right"))
         {
             transform.position = initialPos + Vector2.right * new Vector2(offset, 0);
@@ -195,10 +204,10 @@ public class PlayerBehavior : MonoBehaviour
         {
             transform.position = initialPos - Vector2.up * new Vector2(0, offset);
         }
-        
+        */
         //attackCone.SetActive(true);
         playerAnim.SetBool("attacking", true);
-        GetComponent<CircleCollider2D>().enabled = false;
+        //GetComponent<CircleCollider2D>().enabled = false;
         yield return new WaitForSeconds(0.2f);
         playerAnim.SetBool("attacking", false);
         GetComponent<CircleCollider2D>().enabled = true;

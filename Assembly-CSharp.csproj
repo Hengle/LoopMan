@@ -63,9 +63,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\BPMReader.cs" />
     <Compile Include="Assets\BackgroundBehavior.cs" />
     <Compile Include="Assets\CameraShake.cs" />
     <Compile Include="Assets\EnemySoundManager.cs" />
+    <Compile Include="Assets\FreestyleEnemyBehavior.cs" />
+    <Compile Include="Assets\FreestyleManager.cs" />
     <Compile Include="Assets\HeroAttackGhostBehavior.cs" />
     <Compile Include="Assets\LoopManager.cs" />
     <Compile Include="Assets\MelodyBehavior.cs" />

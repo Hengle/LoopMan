@@ -80,6 +80,30 @@ public class PlayheadBehavior : MonoBehaviour
         track4Complete = false;
     }
 
+    public void updateBPM(int value)
+    {
+        BPM = value;
+        reInitialize();
+    }
+
+    public void reInitialize()
+    {
+        myRb = GetComponent<Rigidbody2D>();
+        transform.position = initialPosition;
+        
+        timeForBar = numberOfBars * 4.0f * (60.0f / BPM);
+        Debug.Log("1 beat time " + 60.0f / (4.0f * BPM));
+        
+        //IEnumerator moveHeader = MoveToPosition(transform, endPosition, timeForBar);
+        // StartCoroutine(moveHeader);
+        // IEnumerator mainLoop = Looper();
+        //StartCoroutine(mainLoop);
+        setupLoop();
+        track1Complete = false;
+        track2Complete = false;
+        track3Complete = false;
+        track4Complete = false;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -95,7 +119,7 @@ public class PlayheadBehavior : MonoBehaviour
 
         //reseting loop when right mouse is released!
         TrackCompleteCheck();
-        if(Input.GetMouseButtonUp(1))
+        if(Input.GetMouseButtonUp(1) || Input.GetKeyUp(KeyCode.LeftControl))
         {
 
             if(activeNotes1.Count > 0)
