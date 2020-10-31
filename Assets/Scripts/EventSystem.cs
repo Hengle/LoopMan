@@ -18,6 +18,7 @@ public static class MyEventSystem
     public static System.Action<int> track3Hit;
     public static System.Action<int> track4Hit;
     public static System.Action<float> melodyEvent;
+    public static System.Action<int> recFail;
 
 
 

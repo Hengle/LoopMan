@@ -13,16 +13,16 @@ public class MovingEnemyBehavior : MonoBehaviour
     public LayerMask wallsnenemies;
     Vector3 targetDirection;
     float speed = 5f;
-    bool running = true;
+    public bool running = true;
 
     private void OnEnable()
     {
-        MyEventSystem.track2Hit += stopEnemy;
+        MyEventSystem.recFail += startEnemy;
     }
 
     private void OnDisable()
     {
-        MyEventSystem.track2Hit -= stopEnemy;
+        MyEventSystem.recFail -= startEnemy;
     }
     void Start()
     {
@@ -31,16 +31,22 @@ public class MovingEnemyBehavior : MonoBehaviour
         targetDirection = transform.position;
     }
 
-    void stopEnemy(int i)
+
+    public void startEnemy(int i)
     {
-        Destroy(GetComponent<MovingEnemyBehavior>());
+        running = true;
+    }
+    public void stopEnemy(int i)
+    {
+        running = false;
+        //Destroy(GetComponent<MovingEnemyBehavior>());
     }
     // Update is called once per frame
     void Update()
     {
         if (running)
         {
-            if (playHead.ticker == 1)
+            if (playHead.ticker == 2)
             {
                 count++;
             }

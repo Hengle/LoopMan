@@ -19,6 +19,7 @@ public class PlayerBehavior : MonoBehaviour
     public RecordingBehavior currentRecording;
     public Animator playerAnim;
     public int directionInteger = 0;
+    public GameObject recordingIndicator;
 
     void Start()
     {
@@ -47,6 +48,8 @@ public class PlayerBehavior : MonoBehaviour
             playerAnim.SetBool("left", true);
             playerAnim.SetBool("right", true);
             directionInteger = 2;
+            playerAnim.Play("Base Layer.hero_idle_side");
+            
         }
         if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
         {
@@ -55,6 +58,7 @@ public class PlayerBehavior : MonoBehaviour
             playerAnim.SetBool("left", true);
             playerAnim.SetBool("right", false);
             directionInteger = 4;
+            playerAnim.Play("Base Layer.hero_idle_left");
         }
         if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
         {
@@ -63,6 +67,7 @@ public class PlayerBehavior : MonoBehaviour
             playerAnim.SetBool("left", false);
             playerAnim.SetBool("right", false);
             directionInteger = 1;
+            playerAnim.Play("Base Layer.hero_idle_up");
         }
         if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
         {
@@ -71,6 +76,7 @@ public class PlayerBehavior : MonoBehaviour
             playerAnim.SetBool("left", false);
             playerAnim.SetBool("right", false);
             directionInteger = 3;
+            playerAnim.Play("Base Layer.hero_idle_down");
         }
 
     }
@@ -126,6 +132,8 @@ public class PlayerBehavior : MonoBehaviour
             IEnumerator attack = attackCoroutine();
             StartCoroutine(attack);
 
+            //attacking code - disabling and moving to inside coroutine
+            
             RaycastHit2D hitCircle = Physics2D.CircleCast(attackPos.position, attackRadius, Vector2.up, Mathf.Infinity, enemies);
             Collider2D coll = Physics2D.OverlapCircle(attackPos.position, attackRadius, enemies);
             Debug.Log(hitCircle.collider);
@@ -141,6 +149,7 @@ public class PlayerBehavior : MonoBehaviour
                     coll.GetComponent<FreestyleEnemyBehavior>().playSound(directionInteger);
                 }
             }
+            
             /*
             if(hitCircle.collider !=null)
             {
@@ -165,14 +174,15 @@ public class PlayerBehavior : MonoBehaviour
             }
 
             recording = true;
+            recordingIndicator.SetActive(true);
         } else
         {
             recording = false;
-
-         //   if(currentRecording!=null)
-           // {
-          //      currentRecording.stopRecording();
-          //  }
+            recordingIndicator.SetActive(false);
+            //   if(currentRecording!=null)
+            // {
+            //      currentRecording.stopRecording();
+            //  }
             GetComponent<SpriteRenderer>().color = Color.white;
             
         }
@@ -206,9 +216,43 @@ public class PlayerBehavior : MonoBehaviour
         }
         */
         //attackCone.SetActive(true);
+        switch(directionInteger)
+        {
+            case 1:
+            playerAnim.Play("Base Layer.hero_attack_up");
+                break;
+            case 2:
+                playerAnim.Play("Base Layer.hero_attack_right");
+                break;
+            case 3:
+                playerAnim.Play("Base Layer.hero_attack_down");
+                break;
+            case 4:
+                playerAnim.Play("Base Layer.hero_attack_left");
+                break;
+
+        }
+        
         playerAnim.SetBool("attacking", true);
         //GetComponent<CircleCollider2D>().enabled = false;
         yield return new WaitForSeconds(0.2f);
+        /*
+        RaycastHit2D hitCircle = Physics2D.CircleCast(attackPos.position, attackRadius, Vector2.up, Mathf.Infinity, enemies);
+        Collider2D coll = Physics2D.OverlapCircle(attackPos.position, attackRadius, enemies);
+        Debug.Log(hitCircle.collider);
+        if (coll != null)
+        {
+            if (coll.GetComponent<enemyBehavior>() != null)
+            {
+                coll.GetComponent<enemyBehavior>().playSound(directionInteger);
+            }
+
+            if (coll.GetComponent<FreestyleEnemyBehavior>() != null)
+            {
+                coll.GetComponent<FreestyleEnemyBehavior>().playSound(directionInteger);
+            }
+        }
+        */
         playerAnim.SetBool("attacking", false);
         GetComponent<CircleCollider2D>().enabled = true;
         

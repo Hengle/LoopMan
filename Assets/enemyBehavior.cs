@@ -81,6 +81,15 @@ public class enemyBehavior : MonoBehaviour
                 }
             }
         }
+
+        if (GetComponent<MovingEnemyBehavior>() != null)
+        {
+            MovingEnemyBehavior movingEnemy = GetComponent<MovingEnemyBehavior>();
+            if (movingEnemy.running == true)
+            {
+                movingEnemy.stopEnemy(1);
+            }
+        }
     }
     private void OnMouseDown()
     {

@@ -60,6 +60,7 @@ MonoBehaviour:
   recording: 0
   currentRecording: {fileID: 0}
   playerAnim: {fileID: 8171580318516480957}
+  directionInteger: 0
 --- !u!50 &8171580318516480950
 Rigidbody2D:
   serializedVersion: 4

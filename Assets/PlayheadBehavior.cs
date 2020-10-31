@@ -137,11 +137,9 @@ public class PlayheadBehavior : MonoBehaviour
                        
                     }
                     Cam2DShake.shakeDuration = 0.1f;
+                    MyEventSystem.recFail(1);
                     //destroy recording on error
-                    if (player.currentRecording.gameObject != null)
-                    {
-                        Destroy(player.currentRecording.gameObject);
-                    }
+                   
                     activeNotes1 = new List<NoteBehavior>();
                 }
             }
@@ -160,10 +158,7 @@ public class PlayheadBehavior : MonoBehaviour
                         
                     }
                     Cam2DShake.shakeDuration = 0.1f;
-                    if (player.currentRecording != null)
-                    {
-                        Destroy(player.currentRecording.gameObject);
-                    }
+                    MyEventSystem.recFail(1);
                     activeNotes2 = new List<NoteBehavior>();
                 }
             }
@@ -182,10 +177,7 @@ public class PlayheadBehavior : MonoBehaviour
                        
                     }
                     Cam2DShake.shakeDuration = 0.1f;
-                    if (player.currentRecording != null)
-                    {
-                        Destroy(player.currentRecording.gameObject);
-                    }
+                    MyEventSystem.recFail(1);
                     activeNotes3 = new List<NoteBehavior>();
                 }
             }
@@ -205,10 +197,7 @@ public class PlayheadBehavior : MonoBehaviour
                         
                     }
                     Cam2DShake.shakeDuration = 0.1f;
-                    if (player.currentRecording.gameObject != null)
-                    {
-                        Destroy(player.currentRecording.gameObject);
-                    }
+                    MyEventSystem.recFail(1);
                     activeNotes4 = new List<NoteBehavior>();
                 }
             }
@@ -322,6 +311,7 @@ public class PlayheadBehavior : MonoBehaviour
             {
                 n.setInactive();
                 Cam2DShake.shakeDuration = 0.1f;
+                    MyEventSystem.recFail(1);
                 activeNotes1 = new List<NoteBehavior>();
                     streak = false;
                     /*
@@ -361,6 +351,7 @@ public class PlayheadBehavior : MonoBehaviour
                 {
                     n.setInactive();
                     Cam2DShake.shakeDuration = 0.1f;
+                    MyEventSystem.recFail(1);
                     activeNotes2 = new List<NoteBehavior>();
                     /*
                     if (player.currentRecording.gameObject != null)
@@ -398,6 +389,7 @@ public class PlayheadBehavior : MonoBehaviour
                 {
                     n.setInactive();
                     Cam2DShake.shakeDuration = 0.1f;
+                    MyEventSystem.recFail(1);
                     activeNotes3 = new List<NoteBehavior>();
                     streak = false;
                     /*
@@ -435,6 +427,7 @@ public class PlayheadBehavior : MonoBehaviour
                 {
                     n.setInactive();
                     Cam2DShake.shakeDuration = 0.1f;
+                    MyEventSystem.recFail(1);
                     activeNotes4 = new List<NoteBehavior>();
                     streak = false;
                     /*
