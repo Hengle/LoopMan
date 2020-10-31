@@ -20,6 +20,8 @@ public class NoteBehavior : MonoBehaviour
     private Transform playerTransform;
     private int playerFacingDirection;
     private PlayerBehavior playerControls;
+    public Sprite inactiveSprite;
+    public Sprite activeSprite;
     void Start()
     {
         playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
@@ -53,7 +55,7 @@ public class NoteBehavior : MonoBehaviour
     {
         
         active = true;
-        mySprite.color = activeColor;
+        mySprite.sprite = activeSprite;
         recordGhost(playerTransform.position);
     }
 
@@ -78,7 +80,8 @@ public class NoteBehavior : MonoBehaviour
     public void setInactive()
     {
         active = false;
-        mySprite.color = inactiveColor;
+        
+        mySprite.sprite = inactiveSprite;
         
     }
 

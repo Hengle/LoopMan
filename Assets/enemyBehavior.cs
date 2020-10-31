@@ -58,6 +58,7 @@ public class enemyBehavior : MonoBehaviour
     {
         //ps.main.startColor = psColor;
         enemyManager.playSound(mySound);
+        GetComponent<Animator>().Play("Base Layer.enemy1Hit");
         ps.Play();
         if (enabled)
         {
@@ -85,10 +86,9 @@ public class enemyBehavior : MonoBehaviour
         if (GetComponent<MovingEnemyBehavior>() != null)
         {
             MovingEnemyBehavior movingEnemy = GetComponent<MovingEnemyBehavior>();
-            if (movingEnemy.running == true)
-            {
-                movingEnemy.stopEnemy(1);
-            }
+            
+            movingEnemy.stopEnemy(1);
+            
         }
     }
     private void OnMouseDown()
