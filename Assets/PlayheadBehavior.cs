@@ -158,7 +158,7 @@ public class PlayheadBehavior : MonoBehaviour
                         
                     }
                     Cam2DShake.shakeDuration = 0.1f;
-                    MyEventSystem.recFail(1);
+                    MyEventSystem.recFail(2);
                     activeNotes2 = new List<NoteBehavior>();
                 }
             }
@@ -177,7 +177,7 @@ public class PlayheadBehavior : MonoBehaviour
                        
                     }
                     Cam2DShake.shakeDuration = 0.1f;
-                    MyEventSystem.recFail(1);
+                    MyEventSystem.recFail(3);
                     activeNotes3 = new List<NoteBehavior>();
                 }
             }
@@ -197,7 +197,7 @@ public class PlayheadBehavior : MonoBehaviour
                         
                     }
                     Cam2DShake.shakeDuration = 0.1f;
-                    MyEventSystem.recFail(1);
+                    MyEventSystem.recFail(4);
                     activeNotes4 = new List<NoteBehavior>();
                 }
             }
@@ -351,7 +351,7 @@ public class PlayheadBehavior : MonoBehaviour
                 {
                     n.setInactive();
                     Cam2DShake.shakeDuration = 0.1f;
-                    MyEventSystem.recFail(1);
+                    MyEventSystem.recFail(2);
                     activeNotes2 = new List<NoteBehavior>();
                     /*
                     if (player.currentRecording.gameObject != null)
@@ -389,7 +389,7 @@ public class PlayheadBehavior : MonoBehaviour
                 {
                     n.setInactive();
                     Cam2DShake.shakeDuration = 0.1f;
-                    MyEventSystem.recFail(1);
+                    MyEventSystem.recFail(3);
                     activeNotes3 = new List<NoteBehavior>();
                     streak = false;
                     /*
@@ -427,7 +427,7 @@ public class PlayheadBehavior : MonoBehaviour
                 {
                     n.setInactive();
                     Cam2DShake.shakeDuration = 0.1f;
-                    MyEventSystem.recFail(1);
+                    MyEventSystem.recFail(4);
                     activeNotes4 = new List<NoteBehavior>();
                     streak = false;
                     /*

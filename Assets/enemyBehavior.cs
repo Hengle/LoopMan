@@ -86,8 +86,10 @@ public class enemyBehavior : MonoBehaviour
         if (GetComponent<MovingEnemyBehavior>() != null)
         {
             MovingEnemyBehavior movingEnemy = GetComponent<MovingEnemyBehavior>();
-            
-            movingEnemy.stopEnemy(1);
+            if (player.recording)
+            {
+                movingEnemy.stopEnemy(1);
+            }
             
         }
     }

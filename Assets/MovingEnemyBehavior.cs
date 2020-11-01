@@ -14,6 +14,8 @@ public class MovingEnemyBehavior : MonoBehaviour
     Vector3 targetDirection;
     float speed = 5f;
     public bool running = true;
+    private enemyBehavior myEnemy;
+    public bool escaping = true;
 
     private void OnEnable()
     {
@@ -34,11 +36,21 @@ public class MovingEnemyBehavior : MonoBehaviour
 
     public void startEnemy(int i)
     {
-        //running = true;
+        myEnemy = GetComponent<enemyBehavior>();
+        if(i == myEnemy.trackNumber )
+        {
+            moveInRandomDirection();
+            escapeToTarget();
+            escaping= true;
+        }
+        
     }
     public void stopEnemy(int i)
     {
-        running = false;
+        if (!escaping)
+        {
+            running = false;
+        }
         //Destroy(GetComponent<MovingEnemyBehavior>());
     }
     // Update is called once per frame
@@ -58,6 +70,11 @@ public class MovingEnemyBehavior : MonoBehaviour
             }
 
             moveToTarget();
+        }
+
+        if(escaping)
+        {
+            escapeToTarget();
         }
       
     }
@@ -86,5 +103,18 @@ public class MovingEnemyBehavior : MonoBehaviour
     void moveToTarget()
     {
         transform.position = Vector3.Lerp(transform.position, targetDirection, speed * Time.deltaTime);
+
+    }
+
+    void escapeToTarget()
+    {
+        transform.position = Vector3.Lerp(transform.position, targetDirection, speed * Time.deltaTime);
+
+        if (Vector3.Distance(transform.position, targetDirection) < 0.2f)
+        {
+            escaping = false;
+            running = true;
+        }
     }
 }
+
