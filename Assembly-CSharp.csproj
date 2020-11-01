@@ -82,6 +82,7 @@
     <Compile Include="Assets\Scripts\GhostBehavior.cs" />
     <Compile Include="Assets\TutorialManager.cs" />
     <Compile Include="Assets\boomBoxBehavior.cs" />
+    <Compile Include="Assets\crowdBehavior.cs" />
     <Compile Include="Assets\enemyBehavior.cs" />
     <Compile Include="Assets\start.cs" />
     <Reference Include="UnityEngine">

@@ -9,8 +9,9 @@ public class MelodyBehavior : MonoBehaviour
     AudioSource mySource;
     bool readyToPlay = false;
     bool coroutStarted = false;
-    public GameObject boomBox;
+    public Animator melodyAnimator;
     public GameObject melodyNoteGO;
+    public GameObject boombox;
     int count = 0;
     void Start()
     {
@@ -32,6 +33,7 @@ public class MelodyBehavior : MonoBehaviour
             {
                 if(!coroutStarted)
                 {
+                    
                     IEnumerator songDelay = startSongIn2Bars();
                     StartCoroutine(songDelay);
                     coroutStarted = true;
@@ -63,7 +65,8 @@ public class MelodyBehavior : MonoBehaviour
 
         if(count==4)
         {
-            boomBox.SetActive(true);
+            melodyAnimator.Play("Base Layer.DoorOpen");
+            boombox.SetActive(true);
         }
     }
 

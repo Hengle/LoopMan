@@ -34,7 +34,7 @@ public class MovingEnemyBehavior : MonoBehaviour
 
     public void startEnemy(int i)
     {
-        running = true;
+        //running = true;
     }
     public void stopEnemy(int i)
     {

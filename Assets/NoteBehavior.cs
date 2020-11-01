@@ -134,6 +134,7 @@ public class NoteBehavior : MonoBehaviour
                 else if(trackNumber ==0)
                 {
                     MyEventSystem.melodyEvent(noteWidth);
+                    MyEventSystem.levelComplete(1);
                     active = false;
                 }
             }

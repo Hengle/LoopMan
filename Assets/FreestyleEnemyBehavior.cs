@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class FreestyleEnemyBehavior : MonoBehaviour
 {
@@ -19,8 +20,10 @@ public class FreestyleEnemyBehavior : MonoBehaviour
     private Transform playHeadTransform;
     public Transform noteLinePosition;
     public Transform parentTrackTransform;
+    private Tilemap activeTilemap;
     void Start()
     {
+        activeTilemap = parentTrackTransform.GetComponent<Tilemap>();
         playHeadTransform = GameObject.FindGameObjectWithTag("playHead").transform;
         enemyManager = GameObject.FindGameObjectWithTag("enemyManager").GetComponent<EnemySoundManager>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerBehavior>();
@@ -66,13 +69,18 @@ public class FreestyleEnemyBehavior : MonoBehaviour
         //ps.startColor = psColor;
         enemyManager.playSound(mySound);
         //ps.Play();
-
+        GetComponent<Animator>().Play("Base Layer.enemy1Hit");
         if (enabled)
         {
             if (recording)
             {
+                 
                 Vector3 notePosition = new Vector3(playHeadTransform.position.x, noteLinePosition.position.y, playHeadTransform.position.z);
-                GameObject newNote = Instantiate(attachedNote, notePosition, Quaternion.identity,parentTrackTransform);
+                
+                Vector3Int tilePosition = activeTilemap.WorldToCell(notePosition);
+                Vector3 adjustedPosition = activeTilemap.CellToWorld(tilePosition);
+                
+                GameObject newNote = Instantiate(attachedNote, notePosition, Quaternion.identity, parentTrackTransform);
                 NoteBehavior newNoteBehavior = newNote.GetComponent<NoteBehavior>();
                 newNoteBehavior.attachedEnemyAnimator = GetComponent<Animator>();
                 newNoteBehavior.attachedEnemyTransform = transform;
