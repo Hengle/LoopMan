@@ -159,7 +159,7 @@ public class PlayerBehavior : MonoBehaviour
 
         }
         //on right click down, begin a recording
-        if (Input.GetMouseButton(1) || Input.GetKey(KeyCode.LeftControl))
+        if (Input.GetMouseButton(1) || Input.GetKey(KeyCode.LeftShift))
         {
             
             GetComponent<SpriteRenderer>().color =  new Color(1,0,0,1);

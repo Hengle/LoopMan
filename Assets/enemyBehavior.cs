@@ -15,6 +15,7 @@ public class enemyBehavior : MonoBehaviour
     public Color psColor;
     public LoopManager loopManager;
     private bool enabled = true;
+    public GameObject attackBubble;
     void Start()
     {
         enemyManager = GameObject.FindGameObjectWithTag("enemyManager").GetComponent<EnemySoundManager>();
@@ -56,6 +57,10 @@ public class enemyBehavior : MonoBehaviour
     }
     public void playSound(int directionInteger)
     {
+        if(attackBubble!=null)
+        {
+            attackBubble.SetActive(false);
+        }
         //ps.main.startColor = psColor;
         enemyManager.playSound(mySound);
         GetComponent<Animator>().Play("Base Layer.enemy1Hit");

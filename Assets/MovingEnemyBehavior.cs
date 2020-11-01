@@ -6,6 +6,7 @@ public class MovingEnemyBehavior : MonoBehaviour
 {
     // Start is called before the first frame update
     public PlayheadBehavior playHead;
+    public bool keepActiveForMovingEnemy = true;
     int count = 0;
     List<Vector3> possiblePositions;
     public Vector3[] directions;
@@ -36,67 +37,77 @@ public class MovingEnemyBehavior : MonoBehaviour
 
     public void startEnemy(int i)
     {
-        myEnemy = GetComponent<enemyBehavior>();
-        if(i == myEnemy.trackNumber )
+        if (keepActiveForMovingEnemy)
         {
-            moveInRandomDirection();
-            escapeToTarget();
-            escaping= true;
+            myEnemy = GetComponent<enemyBehavior>();
+            if (i == myEnemy.trackNumber)
+            {
+                moveInRandomDirection();
+                escapeToTarget();
+                escaping = true;
+            }
         }
         
     }
     public void stopEnemy(int i)
     {
-        if (!escaping)
+        if (keepActiveForMovingEnemy)
         {
-            running = false;
+            if (!escaping)
+            {
+                running = false;
+            }
         }
         //Destroy(GetComponent<MovingEnemyBehavior>());
     }
     // Update is called once per frame
     void Update()
     {
-        if (running)
+        if (keepActiveForMovingEnemy)
         {
-            if (playHead.ticker == 2)
+            if (running)
             {
-                count++;
+                if (playHead.ticker == 2)
+                {
+                    count++;
+                }
+
+                if (count == 1)
+                {
+                    moveInRandomDirection();
+                    count = 0;
+                }
+
+                moveToTarget();
             }
 
-            if (count == 1)
+            if (escaping)
             {
-                moveInRandomDirection();
-                count = 0;
+                escapeToTarget();
             }
-
-            moveToTarget();
-        }
-
-        if(escaping)
-        {
-            escapeToTarget();
         }
       
     }
 
     void moveInRandomDirection()
     {
-
-        foreach( Vector3 dir in directions)
+        if (keepActiveForMovingEnemy)
         {
-            Collider2D coll = Physics2D.OverlapCircle(transform.position + dir, attackRadius, wallsnenemies);
-            if(coll ==null)
+            foreach (Vector3 dir in directions)
             {
-                possiblePositions.Add(transform.position + dir);
-                
+                Collider2D coll = Physics2D.OverlapCircle(transform.position + dir, attackRadius, wallsnenemies);
+                if (coll == null)
+                {
+                    possiblePositions.Add(transform.position + dir);
+
+                }
             }
+
+            int randomIndex = Random.Range(0, possiblePositions.Count - 1);
+            targetDirection = possiblePositions[randomIndex];
+            possiblePositions = new List<Vector3>();
+
         }
-
-        int randomIndex = Random.Range(0, possiblePositions.Count - 1);
-        targetDirection = possiblePositions[randomIndex];
-        possiblePositions = new List<Vector3>();
-
-
 
     } 
 

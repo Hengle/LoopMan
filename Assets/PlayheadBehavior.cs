@@ -119,7 +119,7 @@ public class PlayheadBehavior : MonoBehaviour
 
         //reseting loop when right mouse is released!
         TrackCompleteCheck();
-        if(Input.GetMouseButtonUp(1) || Input.GetKeyUp(KeyCode.LeftControl))
+        if(Input.GetMouseButtonUp(1) || Input.GetKeyUp(KeyCode.LeftShift))
         {
 
             if(activeNotes1.Count > 0)
@@ -305,24 +305,26 @@ public class PlayheadBehavior : MonoBehaviour
             }
         
 
-        if(!matchFound)
-        {
-            foreach (NoteBehavior n in activeNotes1)
+            if(!matchFound)
             {
-                n.setInactive();
-                Cam2DShake.shakeDuration = 0.1f;
-                    MyEventSystem.recFail(1);
-                activeNotes1 = new List<NoteBehavior>();
-                    streak = false;
-                    /*
-                    if (player.currentRecording.gameObject != null)
-                    {
-                        Destroy(player.currentRecording.gameObject);
-                    }
-                    */
+                foreach (NoteBehavior n in activeNotes1)
+                {
+                    n.setInactive();
+                    
+                        
+                    activeNotes1 = new List<NoteBehavior>();
+                        streak = false;
+                        /*
+                        if (player.currentRecording.gameObject != null)
+                        {
+                            Destroy(player.currentRecording.gameObject);
+                        }
+                        */
 
                 }
-        }
+                Cam2DShake.shakeDuration = 0.1f;
+                MyEventSystem.recFail(1);
+            }
         }
     }
 
@@ -350,8 +352,8 @@ public class PlayheadBehavior : MonoBehaviour
                 foreach (NoteBehavior n in activeNotes2)
                 {
                     n.setInactive();
-                    Cam2DShake.shakeDuration = 0.1f;
-                    MyEventSystem.recFail(2);
+                    
+                    
                     activeNotes2 = new List<NoteBehavior>();
                     /*
                     if (player.currentRecording.gameObject != null)
@@ -361,6 +363,8 @@ public class PlayheadBehavior : MonoBehaviour
                     */
                     streak = false;
                 }
+                Cam2DShake.shakeDuration = 0.1f;
+                MyEventSystem.recFail(2);
             }
         }
     }
@@ -388,8 +392,8 @@ public class PlayheadBehavior : MonoBehaviour
                 foreach (NoteBehavior n in activeNotes3)
                 {
                     n.setInactive();
-                    Cam2DShake.shakeDuration = 0.1f;
-                    MyEventSystem.recFail(3);
+                    
+                    
                     activeNotes3 = new List<NoteBehavior>();
                     streak = false;
                     /*
@@ -399,6 +403,8 @@ public class PlayheadBehavior : MonoBehaviour
                     }
                     */
                 }
+                Cam2DShake.shakeDuration = 0.1f;
+                MyEventSystem.recFail(3);
             }
         }
     }
@@ -426,8 +432,8 @@ public class PlayheadBehavior : MonoBehaviour
                 foreach (NoteBehavior n in activeNotes4)
                 {
                     n.setInactive();
-                    Cam2DShake.shakeDuration = 0.1f;
-                    MyEventSystem.recFail(4);
+                   
+                    
                     activeNotes4 = new List<NoteBehavior>();
                     streak = false;
                     /*
@@ -437,6 +443,8 @@ public class PlayheadBehavior : MonoBehaviour
                    }
                    */
                 }
+                Cam2DShake.shakeDuration = 0.1f;
+                MyEventSystem.recFail(4);
             }
         }
     }

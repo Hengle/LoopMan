@@ -63,6 +63,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\AttackBubble.cs" />
     <Compile Include="Assets\BPMReader.cs" />
     <Compile Include="Assets\BackgroundBehavior.cs" />
     <Compile Include="Assets\CameraShake.cs" />
@@ -80,6 +81,7 @@
     <Compile Include="Assets\RecordingBehavior.cs" />
     <Compile Include="Assets\Scripts\EventSystem.cs" />
     <Compile Include="Assets\Scripts\GhostBehavior.cs" />
+    <Compile Include="Assets\TutorialBubbles.cs" />
     <Compile Include="Assets\TutorialManager.cs" />
     <Compile Include="Assets\boomBoxBehavior.cs" />
     <Compile Include="Assets\crowdBehavior.cs" />
