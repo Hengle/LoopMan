@@ -106,6 +106,7 @@ MonoBehaviour:
   ps: {fileID: 0}
   psColor: {r: 0.28505325, g: 1, b: 0, a: 1}
   loopManager: {fileID: 0}
+  attackBubble: {fileID: 0}
 --- !u!50 &5259972049420053908
 Rigidbody2D:
   serializedVersion: 4
@@ -317,7 +318,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.59607846, g: 0.15686275, b: 0.15686275, a: 1}
+      maxColor: {r: 0.8705883, g: 0.5882353, b: 0.21568629, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -4804,7 +4805,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 17a1ae6e737c016479a5f241d5e407b5, type: 2}
   - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -4825,7 +4826,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_RenderMode: 0
   m_SortMode: 0
   m_MinParticleSize: 0

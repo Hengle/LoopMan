@@ -24004,6 +24004,21 @@ PrefabInstance:
       propertyPath: attackBubble
       value: 
       objectReference: {fileID: 1322495578}
+    - target: {fileID: 203033255898130488, guid: 70dea6212676183448986ecdbf6d9061,
+        type: 3}
+      propertyPath: psColor.r
+      value: 0.15294118
+      objectReference: {fileID: 0}
+    - target: {fileID: 203033255898130488, guid: 70dea6212676183448986ecdbf6d9061,
+        type: 3}
+      propertyPath: psColor.g
+      value: 0.43529415
+      objectReference: {fileID: 0}
+    - target: {fileID: 203033255898130488, guid: 70dea6212676183448986ecdbf6d9061,
+        type: 3}
+      propertyPath: psColor.b
+      value: 0.2901961
+      objectReference: {fileID: 0}
     - target: {fileID: 203033255898130491, guid: 70dea6212676183448986ecdbf6d9061,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -24073,6 +24088,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1315361005309438680, guid: 70dea6212676183448986ecdbf6d9061,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2714970255259218920, guid: 70dea6212676183448986ecdbf6d9061,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0.21568629
+      objectReference: {fileID: 0}
+    - target: {fileID: 2714970255259218920, guid: 70dea6212676183448986ecdbf6d9061,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.5803922
+      objectReference: {fileID: 0}
+    - target: {fileID: 2714970255259218920, guid: 70dea6212676183448986ecdbf6d9061,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0.43137258
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70dea6212676183448986ecdbf6d9061, type: 3}

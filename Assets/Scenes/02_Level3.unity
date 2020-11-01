@@ -608,6 +608,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4317415947692067518, guid: fc2d8ee62ea319c49a6bde4fa58be387,
+        type: 3}
+      propertyPath: attachedEnemyAnimator
+      value: 
+      objectReference: {fileID: 1676011710}
+    - target: {fileID: 4317415947692067518, guid: fc2d8ee62ea319c49a6bde4fa58be387,
+        type: 3}
+      propertyPath: attachedEnemyTransform
+      value: 
+      objectReference: {fileID: 203033256300279603}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc2d8ee62ea319c49a6bde4fa58be387, type: 3}
 --- !u!4 &35002762 stripped
@@ -1643,7 +1653,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 3f8b6ad8166a56f43913fe9a31dbd63e, type: 3}
+      objectReference: {fileID: 8300000, guid: f23de270db4043d40985141fc11b12c2, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e9a4b3b80b384bc4a82e76e20cb87382, type: 3}
 --- !u!4 &171400155 stripped
@@ -3133,6 +3143,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4317415947692067518, guid: fc2d8ee62ea319c49a6bde4fa58be387,
+        type: 3}
+      propertyPath: attachedEnemyAnimator
+      value: 
+      objectReference: {fileID: 1676011710}
+    - target: {fileID: 4317415947692067518, guid: fc2d8ee62ea319c49a6bde4fa58be387,
+        type: 3}
+      propertyPath: attachedEnemyTransform
+      value: 
+      objectReference: {fileID: 203033256300279603}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc2d8ee62ea319c49a6bde4fa58be387, type: 3}
 --- !u!4 &254257376 stripped
@@ -5150,7 +5170,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &418405290
 Transform:
   m_ObjectHideFlags: 0
@@ -17683,7 +17703,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1888328531
 Transform:
   m_ObjectHideFlags: 0
@@ -19935,6 +19955,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playHead: {fileID: 0}
+  keepActiveForMovingEnemy: 1
   directions:
   - {x: 1, y: 0, z: 0}
   - {x: -1, y: 0, z: 0}

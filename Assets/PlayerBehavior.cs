@@ -254,7 +254,7 @@ public class PlayerBehavior : MonoBehaviour
         }
         */
         playerAnim.SetBool("attacking", false);
-        GetComponent<CircleCollider2D>().enabled = true;
+        GetComponent<BoxCollider2D>().enabled = true;
         
         //attackCone.SetActive(false);
 

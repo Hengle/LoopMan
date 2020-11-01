@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 53077f2f8e6693d4287129ba95aed36b
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Manaspace
+  fontNames:
+  - Manaspace
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: e47574ae06fd87643ad452e89a23cff0, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

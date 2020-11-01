@@ -943,7 +943,7 @@ PrefabInstance:
     - target: {fileID: 4317415947692067516, guid: fc2d8ee62ea319c49a6bde4fa58be387,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.498
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 4317415947692067516, guid: fc2d8ee62ea319c49a6bde4fa58be387,
         type: 3}
@@ -1110,7 +1110,7 @@ PrefabInstance:
     - target: {fileID: 1700367428663172599, guid: 4c9392ea4c1acb043bd100d2556acf11,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1700367428663172599, guid: 4c9392ea4c1acb043bd100d2556acf11,
         type: 3}
@@ -1155,7 +1155,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &120779508
 Transform:
   m_ObjectHideFlags: 0
@@ -1278,7 +1278,7 @@ PrefabInstance:
     - target: {fileID: 1700367428663172599, guid: 4c9392ea4c1acb043bd100d2556acf11,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 22.499
+      value: 23.5
       objectReference: {fileID: 0}
     - target: {fileID: 1700367428663172599, guid: 4c9392ea4c1acb043bd100d2556acf11,
         type: 3}
@@ -1814,7 +1814,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: a6f92627b20810948b64d1a49124a762, type: 3}
+      objectReference: {fileID: 8300000, guid: 13ccec1c51e74694ea7d681c9bb436c4, type: 3}
+    - target: {fileID: 2557312634676537403, guid: e9a4b3b80b384bc4a82e76e20cb87382,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e9a4b3b80b384bc4a82e76e20cb87382, type: 3}
 --- !u!4 &171400155 stripped
@@ -7399,8 +7404,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 725960180}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.802, y: 10.701, z: -25.813856}
-  m_LocalScale: {x: 4.1601505, y: 0.47933102, z: 1}
+  m_LocalPosition: {x: 3.802, y: 10.221, z: -25.813856}
+  m_LocalScale: {x: 4.1601505, y: 1.4400358, z: 1}
   m_Children: []
   m_Father: {fileID: 2168657670890292422}
   m_RootOrder: 10
@@ -10286,7 +10291,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1088726510
 Transform:
   m_ObjectHideFlags: 0
@@ -12113,7 +12118,7 @@ PrefabInstance:
     - target: {fileID: 1700367428663172599, guid: 4c9392ea4c1acb043bd100d2556acf11,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1700367428663172599, guid: 4c9392ea4c1acb043bd100d2556acf11,
         type: 3}
@@ -14953,6 +14958,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playHead: {fileID: 0}
+  keepActiveForMovingEnemy: 1
   directions:
   - {x: 1, y: 0, z: 0}
   - {x: -1, y: 0, z: 0}
@@ -15310,7 +15316,7 @@ PrefabInstance:
     - target: {fileID: 1700367428663172599, guid: 4c9392ea4c1acb043bd100d2556acf11,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.49
+      value: 7.5
       objectReference: {fileID: 0}
     - target: {fileID: 1700367428663172599, guid: 4c9392ea4c1acb043bd100d2556acf11,
         type: 3}
@@ -16268,7 +16274,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1715405709}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -12.36, y: -17.11, z: -6.91}
+  m_LocalPosition: {x: -12.36, y: -17.11, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -19221,7 +19227,7 @@ PrefabInstance:
     - target: {fileID: 4317415947692067516, guid: fc2d8ee62ea319c49a6bde4fa58be387,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 20.499
+      value: 20.5
       objectReference: {fileID: 0}
     - target: {fileID: 4317415947692067516, guid: fc2d8ee62ea319c49a6bde4fa58be387,
         type: 3}
@@ -20199,6 +20205,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1315361005309438680, guid: 70dea6212676183448986ecdbf6d9061,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70dea6212676183448986ecdbf6d9061, type: 3}
 --- !u!4 &203033255891232803 stripped
@@ -20244,6 +20255,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playHead: {fileID: 0}
+  keepActiveForMovingEnemy: 1
   directions:
   - {x: 1, y: 0, z: 0}
   - {x: -1, y: 0, z: 0}
